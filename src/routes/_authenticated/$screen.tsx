@@ -22,6 +22,7 @@ import { KNOWN_SCREENS, STATIC_SCREENS, NAV } from "@/lib/nav";
 const TITLES: Record<string, string> = Object.fromEntries(NAV.map((n) => [n.to.slice(1), n.label]));
 
 export const Route = createFileRoute("/_authenticated/$screen")({
+  ssr: false,
   beforeLoad: ({ params }) => {
     if (!KNOWN_SCREENS.has(params.screen)) throw notFound();
   },
