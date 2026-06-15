@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus HRMS - Helpdesk &amp; Support Center</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "secondary": "#0058be",
+                      "on-surface": "#0b1c30",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#23005c",
+                      "surface-bright": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#131b2e",
+                      "secondary-container": "#2170e4",
+                      "on-primary-container": "#7c839b",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "primary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#dae2fd",
+                      "on-surface-variant": "#45464d",
+                      "on-secondary-fixed": "#001a42",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-tertiary-fixed": "#23005c",
+                      "surface": "#f8f9ff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-tint": "#565e74",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#d8e2ff",
+                      "outline": "#76777d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary": "#000000",
+                      "surface-container-high": "#dce9ff",
+                      "background": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-primary-fixed": "#131b2e",
+                      "error": "#ba1a1a",
+                      "on-background": "#0b1c30",
+                      "on-secondary-container": "#fefcff",
+                      "surface-variant": "#d3e4fe",
+                      "tertiary-fixed": "#e9ddff",
+                      "on-tertiary-container": "#9466ff",
+                      "on-secondary-fixed-variant": "#004395",
+                      "inverse-surface": "#213145",
+                      "surface-container": "#e5eeff",
+                      "surface-container-low": "#eff4ff",
+                      "outline-variant": "#c6c6cd",
+                      "inverse-primary": "#bec6e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "grid_columns": "12",
+                      "md": "16px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "grid_gutter": "24px",
+                      "grid_margin": "32px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "2xl": "48px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { background-color: #F8FAFC; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .zia-glow {
+            position: relative;
+        }
+        .zia-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #adc6ff, #9466ff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .zia-glow:hover::before {
+            opacity: 1;
+        }
+        
+        /* Zia specific borders and accents */
+        .border-zia {
+            border-color: #9466ff;
+        }
+        .text-zia {
+            color: #9466ff;
+        }
+        .bg-zia-light {
+            background-color: rgba(148, 102, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md bg-background antialiased h-screen flex overflow-hidden">
+<!-- SideNavBar (from JSON) -->
+<aside class="hidden md:flex flex-col h-full py-md overflow-y-auto docked left-0 w-64 bg-surface-container-lowest dark:bg-inverse-surface shadow-sm dark:shadow-none flex-shrink-0 z-20">
+<!-- Header -->
+<div class="px-lg pb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary font-bold">N</div>
+<div>
+<h1 class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed">Nexus HRMS</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Enterprise Suite</p>
+</div>
+</div>
+</div>
+<!-- Main Navigation -->
+<nav class="flex-1 px-sm">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-body-md text-body-md">Core HR</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="font-body-md text-body-md">Recruitment</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+<span class="font-body-md text-body-md">Talent</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Finance</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-body-md text-body-md">Attendance</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- CTA & Footer Nav -->
+<div class="px-sm mt-auto pt-lg">
+<button class="w-full flex items-center justify-center gap-sm bg-gradient-to-r from-secondary to-on-tertiary-container text-on-primary font-label-md text-label-md py-sm rounded-lg shadow-sm mb-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                Zia AI Insights
+            </button>
+<ul class="space-y-1 border-t border-outline-variant/30 pt-sm">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container dark:hover:bg-on-primary-container/10 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-secondary font-bold border-r-4 border-secondary bg-surface-container-high dark:bg-secondary-container/20" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-body-md text-body-md">Help</span>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- TopNavBar (from JSON) -->
+<header class="flex justify-between items-center w-full px-grid_margin h-16 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline flat no shadows docked full-width top-0 z-10 flex-shrink-0">
+<!-- Mobile Brand (Hidden on Desktop due to SideNav) -->
+<div class="md:hidden hidden">
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed">Nexus HRMS</span>
+</div>
+<!-- Search (on_left configuration) -->
+<div class="flex-1 max-w-md relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg border border-outline-variant bg-surface-container-lowest focus:border-secondary focus:ring-1 focus:ring-secondary text-body-md font-body-md" placeholder="Search Helpdesk, articles, or tickets..." type="text"/>
+</div>
+<!-- Navigation & Actions -->
+<div class="flex items-center gap-md ml-auto">
+<nav class="hidden lg:flex items-center gap-md mr-lg">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-all duration-200" href="#">Directory</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-all duration-200" href="#">Quick Actions</a>
+</nav>
+<div class="flex items-center gap-xs mr-sm">
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+</div>
+<div class="hidden sm:flex items-center gap-sm">
+<button class="px-4 py-2 rounded-lg border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                        Zia AI
+                    </button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity">
+                        Clock In
+                    </button>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden ml-sm cursor-pointer">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate employee on a clean, light neutral background, suitable for an enterprise HR system. The lighting is soft and flattering, typical of modern corporate ID photos. The subject is wearing business casual attire. The overall mood is approachable yet professional, matching a high-end software UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLCVWzZ0oAUBakq2IxCV1Wjedxw13WwP6Dc5SLTM4sWA61Nb-iM1rFNhEEaiExI-HH673KN53XmGZy2f9KQx8Su-vg8hUpm-Dyj3AgWAyhTEp6bMbwH3eHtYrPir0whBA8qrUZK5cqsN189f_M7SKfJsLFAr4GzAvSZqwexL-DL9vJ6iizuzf-dXvd3FB8kljABtAL8yHIHlBbRtzdKS0WKTSzwOnUzjXA3-SKgVL9XmFVtnayitZOPe7WfWe-ybS1yWLyBw5YJD8"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-grid_margin">
+<div class="max-w-[1400px] mx-auto">
+<!-- Page Header -->
+<div class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-xs">Helpdesk &amp; Support</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Find answers, submit requests, and manage your support tickets.</p>
+</div>
+<button class="bg-secondary text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md shadow-sm hover:opacity-90 transition-opacity flex items-center gap-sm">
+<span class="material-symbols-outlined">add</span>
+                        New Request
+                    </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid_gutter">
+<!-- Search & Quick Links (Spans 8 cols) -->
+<div class="md:col-span-8 flex flex-col gap-grid_gutter">
+<!-- Hero Search Card -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-[0px_1px_3px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<!-- Subtle abstract bg -->
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-bl from-surface-container to-transparent opacity-50 pointer-events-none"></div>
+<h3 class="font-title-lg text-title-lg text-on-background mb-md relative z-10">How can we help you today?</h3>
+<div class="relative max-w-2xl z-10 mb-lg">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border border-outline-variant bg-surface focus:border-secondary focus:ring-1 focus:ring-secondary text-body-lg font-body-lg shadow-sm" placeholder="Search knowledge base (e.g., 'Reset password', 'Benefits policy')..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-sm z-10 relative">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center mr-sm">Popular:</span>
+<button class="px-3 py-1 rounded-full border border-outline-variant text-on-surface font-body-sm text-body-sm hover:bg-surface-container transition-colors">IT Equipment</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant text-on-surface font-body-sm text-body-sm hover:bg-surface-container transition-colors">Leave Policy</button>
+<button class="px-3 py-1 rounded-full border border-outline-variant text-on-surface font-body-sm text-body-sm hover:bg-surface-container transition-colors">Payroll Issues</button>
+</div>
+</div>
+<!-- Knowledge Base Categories -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+<a class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-secondary/50 hover:shadow-md transition-all group flex flex-col items-start" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">devices</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-background mb-xs">IT &amp; Hardware</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Software access, equipment requests, VPN.</p>
+</a>
+<a class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-secondary/50 hover:shadow-md transition-all group flex flex-col items-start" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-background mb-xs">HR &amp; Benefits</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Insurance, wellness programs, policies.</p>
+</a>
+<a class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 hover:border-secondary/50 hover:shadow-md transition-all group flex flex-col items-start" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-background mb-xs">Payroll</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tax forms, direct deposit, expense claims.</p>
+</a>
+</div>
+</div>
+<!-- Zia AI Support Widget (Spans 4 cols) -->
+<div class="md:col-span-4 h-full flex flex-col">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05)] flex flex-col h-full overflow-hidden border border-outline-variant/30 relative border-l-4 border-l-[#9466ff]">
+<!-- Widget Header -->
+<div class="p-md bg-zia-light flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-zia">auto_awesome</span>
+<h3 class="font-title-md text-title-md text-on-background">Zia Assistant</h3>
+</div>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9466ff] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#5516be]"></span>
+</span>
+</div>
+<!-- Chat Area -->
+<div class="flex-1 p-md flex flex-col gap-md overflow-y-auto bg-surface-bright/50 min-h-[300px]">
+<!-- Zia Message -->
+<div class="flex gap-sm">
+<div class="w-8 h-8 rounded-full bg-zia-light flex items-center justify-center flex-shrink-0 text-zia">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<div class="bg-surface-container-lowest p-sm rounded-lg rounded-tl-none border border-outline-variant/20 shadow-sm max-w-[85%]">
+<p class="font-body-sm text-body-sm text-on-surface">Hi there! I'm Zia. I can help resolve common issues instantly. Are you looking for help with your recent ticket <strong>#HD-8829</strong>?</p>
+</div>
+</div>
+<!-- User Suggestion Chips -->
+<div class="flex flex-col gap-xs pl-10">
+<button class="bg-surface-container-low border border-outline-variant/30 px-3 py-2 rounded-lg text-left font-body-sm text-body-sm text-on-surface hover:bg-surface-container transition-colors w-fit">Yes, check status</button>
+<button class="bg-surface-container-low border border-outline-variant/30 px-3 py-2 rounded-lg text-left font-body-sm text-body-sm text-on-surface hover:bg-surface-container transition-colors w-fit">No, something else</button>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-md border-t border-outline-variant/20 bg-surface-container-lowest">
+<div class="relative zia-glow rounded-lg">
+<input class="w-full pl-3 pr-10 py-2 rounded-lg border border-outline-variant bg-surface focus:border-zia focus:ring-1 focus:ring-zia text-body-sm font-body-sm" placeholder="Ask Zia..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-zia hover:text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Tickets Table (Full Width) -->
+<div class="md:col-span-12 mt-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-lg border-b border-outline-variant/30 flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-background">My Recent Tickets</h3>
+<button class="font-label-md text-label-md text-secondary hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/50">
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">ID</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Subject</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Category</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Status</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold">Last Updated</th>
+<th class="py-sm px-lg font-label-md text-label-md text-on-surface-variant font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant/20 hover:bg-surface-bright transition-colors">
+<td class="py-md px-lg font-medium text-secondary">#HD-8829</td>
+<td class="py-md px-lg">Request for Adobe Creative Cloud License</td>
+<td class="py-md px-lg text-on-surface-variant">IT &amp; Software</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#dce9ff] text-[#004395] font-label-sm text-label-sm">
+                                                    In Progress
+                                                </span>
+</td>
+<td class="py-md px-lg text-on-surface-variant">2 hours ago</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant/20 bg-surface-container-lowest hover:bg-surface-bright transition-colors">
+<td class="py-md px-lg font-medium text-secondary">#HD-8750</td>
+<td class="py-md px-lg">Update direct deposit information</td>
+<td class="py-md px-lg text-on-surface-variant">Payroll</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#ffdad6] text-[#93000a] font-label-sm text-label-sm">
+                                                    Action Required
+                                                </span>
+</td>
+<td class="py-md px-lg text-on-surface-variant">Yesterday</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant/20 hover:bg-surface-bright transition-colors">
+<td class="py-md px-lg font-medium text-secondary">#HD-8612</td>
+<td class="py-md px-lg">Broken desk chair replacement</td>
+<td class="py-md px-lg text-on-surface-variant">Facilities</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#e5eeff] text-[#565e74] font-label-sm text-label-sm">
+                                                    Resolved
+                                                </span>
+</td>
+<td class="py-md px-lg text-on-surface-variant">Oct 12, 2023</td>
+<td class="py-md px-lg text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

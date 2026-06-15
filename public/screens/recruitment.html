@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recruitment Hub - Nexus HRMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#9466ff",
+                      "surface-dim": "#cbdbf5",
+                      "on-secondary-fixed-variant": "#004395",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "secondary-fixed": "#d8e2ff",
+                      "surface-variant": "#d3e4fe",
+                      "secondary": "#0058be",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "inverse-surface": "#213145",
+                      "surface-container": "#e5eeff",
+                      "primary-fixed": "#dae2fd",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#23005c",
+                      "outline-variant": "#c6c6cd",
+                      "inverse-primary": "#bec6e0",
+                      "on-background": "#0b1c30",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f8f9ff",
+                      "outline": "#76777d",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#23005c",
+                      "surface-container-high": "#dce9ff",
+                      "primary": "#000000",
+                      "on-primary-fixed": "#131b2e",
+                      "primary-container": "#131b2e",
+                      "surface-container-low": "#eff4ff",
+                      "on-surface": "#0b1c30",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#fefcff",
+                      "surface": "#f8f9ff",
+                      "on-primary-container": "#7c839b",
+                      "surface-tint": "#565e74",
+                      "tertiary-fixed": "#e9ddff",
+                      "on-surface-variant": "#45464d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-secondary-fixed": "#001a42",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#2170e4",
+                      "tertiary": "#000000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "grid_margin": "32px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "grid_columns": "12",
+                      "sm": "8px",
+                      "2xl": "48px",
+                      "grid_gutter": "24px",
+                      "lg": "24px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen left-0 w-64 bg-surface-container-lowest shadow-sm z-20 fixed">
+<div class="flex flex-col h-full py-md overflow-y-auto">
+<div class="px-md pb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">business</span>
+</div>
+<div>
+<h1 class="text-title-lg font-title-lg font-bold text-primary">Nexus HRMS</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Enterprise Suite</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-sm space-y-1">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                    Core HR
+                </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-secondary font-bold border-r-4 border-secondary bg-surface-container-high transition-transform duration-150 scale-[0.99] font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="person_search" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person_search</span>
+                    Recruitment
+                </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="star">star</span>
+                    Talent
+                </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                    Finance
+                </a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+                    Attendance
+                </a>
+</nav>
+<div class="px-md py-md mt-auto space-y-4 border-t border-outline-variant/30">
+<button class="w-full flex items-center justify-center gap-sm py-sm rounded border border-on-tertiary-container/30 text-on-tertiary-container hover:bg-on-tertiary-container/5 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                    Zia AI Insights
+                </button>
+<div class="space-y-1">
+<a class="flex items-center gap-sm px-md py-xs rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+<a class="flex items-center gap-sm px-md py-xs rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+                        Help
+                    </a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 flex flex-col min-h-screen relative w-full">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-grid_margin h-16 bg-surface border-b border-outline-variant sticky top-0 z-10 font-label-md text-label-md">
+<div class="flex items-center gap-md">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-lg text-body-sm font-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none w-64" placeholder="Search..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-lg h-full">
+<a class="text-on-surface-variant hover:text-secondary transition-all duration-200 h-full flex items-center" href="#">Directory</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all duration-200 h-full flex items-center" href="#">Quick Actions</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-1.5 text-on-surface-variant hover:text-secondary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-secondary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-secondary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="w-px h-6 bg-outline-variant mx-2"></div>
+<button class="px-4 py-1.5 text-secondary border border-secondary rounded hover:bg-secondary/5 transition-colors font-label-md text-label-md">Zia AI</button>
+<button class="px-4 py-1.5 bg-primary text-on-primary rounded hover:bg-primary/90 transition-colors font-label-md text-label-md">Clock In</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP86__CTWHtAmfjdcdtif1dKlyLroONPfxizqi8ebM-m8F51sNfIfubdcXf3JRI7ohUJRvxuWntu26wITIG11uTwve2a-ZWr_U5mRLFOR2O_ozCI6OHJSMaOCCXp4wzK7R1t90CljaT4Bq5WSg05YlnIWAJXEtw6sxE4KcqyZgMLAOnzbkTarl8-DSXboOo7s4IA_iaHf9jmEOmZA8jkIWgWxcyvpZ0yg4MHNAbH5mrcMH3_QViecZwOXw5yzQd2YNIGu1QLAtYwo"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-grid_margin flex-1 overflow-x-hidden">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-grid_gutter">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-1">Recruitment Hub</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Manage active requisitions and candidate pipelines.</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary text-on-secondary rounded-lg hover:bg-secondary/90 transition-colors font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New Requisition
+                </button>
+</div>
+<!-- Pipeline Overview (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-grid_gutter mb-xl">
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-md font-label-md text-on-surface-variant">Applied</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">move_to_inbox</span>
+</div>
+</div>
+<div>
+<div class="text-display font-display text-primary">342</div>
+<div class="text-label-sm font-label-sm text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12% this week
+                        </div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-md font-label-md text-on-surface-variant">Interviewed</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</div>
+</div>
+<div>
+<div class="text-display font-display text-primary">84</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant mt-1">Across 12 requisitions</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<span class="text-label-md font-label-md text-on-surface-variant">Offered</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+</div>
+</div>
+<div>
+<div class="text-display font-display text-primary">15</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant mt-1">4 pending acceptance</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-outline-variant/20 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute right-0 top-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="flex items-center justify-between mb-4 relative z-10">
+<span class="text-label-md font-label-md text-on-surface-variant">Hired</span>
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+</div>
+</div>
+<div class="relative z-10">
+<div class="text-display font-display text-primary">9</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant mt-1">This month</div>
+</div>
+</div>
+</div>
+<!-- Zia AI Insights Banner -->
+<div class="bg-surface-container-lowest border-l-4 border-on-tertiary-container rounded-r-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-md mb-xl flex items-start gap-md">
+<div class="w-10 h-10 rounded-full bg-on-tertiary-container/10 flex items-center justify-center text-on-tertiary-container shrink-0 mt-1">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary mb-1">Zia Pipeline Insight</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-3xl">The Senior Frontend Engineer requisition (REQ-2023-04) has a high drop-off rate at the technical assessment stage. Consider reviewing the assessment difficulty or aligning expectations earlier in the process.</p>
+</div>
+<button class="ml-auto text-label-md font-label-md text-on-tertiary-container hover:underline px-4 py-2">View Detail</button>
+</div>
+<!-- Active Requisitions Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-outline-variant/20 overflow-hidden">
+<div class="px-lg py-md border-b border-outline-variant/20 flex justify-between items-center bg-surface-bright">
+<h3 class="text-title-md font-title-md text-primary">Active Requisitions</h3>
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant/20">
+<th class="py-3 px-lg font-semibold uppercase tracking-wider">Role &amp; ID</th>
+<th class="py-3 px-lg font-semibold uppercase tracking-wider">Department</th>
+<th class="py-3 px-lg font-semibold uppercase tracking-wider">Hiring Manager</th>
+<th class="py-3 px-lg font-semibold uppercase tracking-wider">Status</th>
+<th class="py-3 px-lg font-semibold uppercase tracking-wider text-right">Pipeline</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-body-sm">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-lg">
+<div class="font-medium text-primary">Senior Frontend Engineer</div>
+<div class="text-label-sm text-on-surface-variant mt-0.5">REQ-2023-04</div>
+</td>
+<td class="py-4 px-lg text-on-surface">Engineering</td>
+<td class="py-4 px-lg">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Manager Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzcWRfKIYB-f7c_PpyuknMccWatX2xSB3qaQ8fgqZnuWu_cfQGplbVbTO1ERQkOd-bIE8yHiiF8PDMTh7pV96_qFzl-LKbNpahj_AdSRyAXz61Tq4Ir3Aa8ES-zuhWcKZf_rSnqzEDIFd0EHx4JgMCfaY4UUVjviWQMsDH_zNs__z3Luznw3kNB6e_OVl_cM85UXZqEFBj1KoVzhmq8w_Ob1AHQ3m3OGECJZcQAGkjWa0QceCxiibf_rwbqylekdsEk036mr5tkB8"/>
+</div>
+<span>Sarah Jenkins</span>
+</div>
+</td>
+<td class="py-4 px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#E8F5E9] text-[#2E7D32] text-label-sm font-label-sm">Published</span>
+</td>
+<td class="py-4 px-lg text-right">
+<div class="flex items-center justify-end gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1" title="Applied"><span class="material-symbols-outlined text-[14px]">inbox</span> 45</span>
+<span class="flex items-center gap-1" title="Interviewing"><span class="material-symbols-outlined text-[14px]">forum</span> 8</span>
+<span class="flex items-center gap-1" title="Offered"><span class="material-symbols-outlined text-[14px]">handshake</span> 1</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest">
+<td class="py-4 px-lg">
+<div class="font-medium text-primary">Product Marketing Manager</div>
+<div class="text-label-sm text-on-surface-variant mt-0.5">REQ-2023-07</div>
+</td>
+<td class="py-4 px-lg text-on-surface">Marketing</td>
+<td class="py-4 px-lg">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Manager Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO30r4eXIJtTMTgiyq_ymkfmOTndJwFxrioRfiNyyGUvT-4s9aEV2Pv5Ldp1YupKDoxtGAiHhFv1jVq9EQIC-BAbYnH7ooS4KDlID5O4sPrHuCZzW9KawE90eQLP8E5T2KI3AjHBbvMGs-0EKYh2ilaQ09wGEWtSxAm6RD5ZWLAamvvj5d6En_gJdup9OJXycO3NR5NkndliYKdh_eTzSKfGRZ3PkaBMPvNBL_FlGOsjiy7HFgyod0GZ4fkzFfsytMhKuu4geVEVY"/>
+</div>
+<span>David Chen</span>
+</div>
+</td>
+<td class="py-4 px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#E3F2FD] text-[#1565C0] text-label-sm font-label-sm">Draft</span>
+</td>
+<td class="py-4 px-lg text-right">
+<span class="text-on-surface-variant italic">N/A</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-lg">
+<div class="font-medium text-primary">UX Researcher</div>
+<div class="text-label-sm text-on-surface-variant mt-0.5">REQ-2023-02</div>
+</td>
+<td class="py-4 px-lg text-on-surface">Design</td>
+<td class="py-4 px-lg">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Manager Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIuvWoGt0-HvGBxlVsjN2UBzMpTEFloSaRj4oIX4TT_z2VBR0IoSBEq6t_p-0tR7JQf0YnGPS0CSvEhXNY246jLdP0ffr7KwBVMfcs9sA6yhe6QoXEa3PjRxuAOFvKnmhP24bhOGBWxj8bUn0-3GGec8Sw9zVJddofnTkiZ31FYY2coig-5nSW3QtKLux66IwHlio4TObculBXRWpEmIaMxNPrtL2Q-4NVvt10NxVnjOpFDmsTv4iJIebZvM10FSrk096c0OLHuwQ"/>
+</div>
+<span>Elena Rodriguez</span>
+</div>
+</td>
+<td class="py-4 px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#FFF3E0] text-[#E65100] text-label-sm font-label-sm">Closed</span>
+</td>
+<td class="py-4 px-lg text-right">
+<div class="flex items-center justify-end gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1 text-primary" title="Hired"><span class="material-symbols-outlined text-[14px]">task_alt</span> 1 Hired</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest">
+<td class="py-4 px-lg">
+<div class="font-medium text-primary">Data Scientist</div>
+<div class="text-label-sm text-on-surface-variant mt-0.5">REQ-2023-09</div>
+</td>
+<td class="py-4 px-lg text-on-surface">Data Analytics</td>
+<td class="py-4 px-lg">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Manager Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcTLHW2XdGAJHRBlbX99n8JBAKNzQM6m6UU2561AgCK9smtJevVsiDMqd4DRRg1FqgSZi6bnmJE5Z4hlmo1icelltrlRwjtHLdh9gBNeLYhiuco7JAY2S22vqapU8rcPKrsIcPUqbmf-cbFPsikrTaL7hcJQxjmT60FJab6m17ZbMTXnBmHW4pc0ahTdxvO7lUCjIdhabMtAMRWiwkADhOCClZpgyecgP8nPyiMMnzx0wvNGqjbB3SIl6-DRuczNfrz9wLHisKMNs"/>
+</div>
+<span>Marcus Webb</span>
+</div>
+</td>
+<td class="py-4 px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#E8F5E9] text-[#2E7D32] text-label-sm font-label-sm">Published</span>
+</td>
+<td class="py-4 px-lg text-right">
+<div class="flex items-center justify-end gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1" title="Applied"><span class="material-symbols-outlined text-[14px]">inbox</span> 120</span>
+<span class="flex items-center gap-1" title="Interviewing"><span class="material-symbols-outlined text-[14px]">forum</span> 12</span>
+<span class="flex items-center gap-1" title="Offered"><span class="material-symbols-outlined text-[14px]">handshake</span> 0</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</body></html>

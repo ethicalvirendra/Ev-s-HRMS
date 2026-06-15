@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HRMS Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#9466ff",
+                      "surface-dim": "#cbdbf5",
+                      "on-secondary-fixed-variant": "#004395",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "secondary-fixed": "#d8e2ff",
+                      "surface-variant": "#d3e4fe",
+                      "secondary": "#0058be",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "inverse-surface": "#213145",
+                      "surface-container": "#e5eeff",
+                      "primary-fixed": "#dae2fd",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#23005c",
+                      "outline-variant": "#c6c6cd",
+                      "inverse-primary": "#bec6e0",
+                      "on-background": "#0b1c30",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f8f9ff",
+                      "outline": "#76777d",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "on-tertiary-fixed": "#23005c",
+                      "surface-container-high": "#dce9ff",
+                      "primary": "#000000",
+                      "on-primary-fixed": "#131b2e",
+                      "primary-container": "#131b2e",
+                      "surface-container-low": "#eff4ff",
+                      "on-surface": "#0b1c30",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#fefcff",
+                      "surface": "#f8f9ff",
+                      "on-primary-container": "#7c839b",
+                      "surface-tint": "#565e74",
+                      "tertiary-fixed": "#e9ddff",
+                      "on-surface-variant": "#45464d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "surface-bright": "#f8f9ff",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-secondary-fixed": "#001a42",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#2170e4",
+                      "tertiary": "#000000"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "grid_margin": "32px",
+                      "xl": "32px",
+                      "xs": "4px",
+                      "grid_columns": "12",
+                      "sm": "8px",
+                      "2xl": "48px",
+                      "grid_gutter": "24px",
+                      "lg": "24px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "title-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "title-lg": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .zia-glow {
+            box-shadow: 0 0 15px rgba(148, 102, 255, 0.15);
+        }
+        .zia-border {
+            border-left: 4px solid #9466ff;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c6c6cd; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #76777d; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-surface flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container-lowest dark:bg-inverse-surface text-secondary dark:text-secondary-fixed-dim font-body-md text-body-md docked h-screen left-0 w-64 shadow-sm dark:shadow-none flex-col h-full py-md overflow-y-auto shrink-0 z-20">
+<div class="px-lg pb-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl">corporate_fare</span>
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed">Nexus HRMS</span>
+</div>
+<div class="px-lg pb-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Enterprise Suite</span>
+</div>
+<ul class="flex flex-col gap-xs flex-1 px-sm">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-secondary font-bold border-r-4 border-secondary bg-surface-container-high dark:bg-secondary-container/20 hover:bg-surface-container transition-colors transform hover:scale-[0.99] duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors transform hover:scale-[0.99] duration-150" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Core HR</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors transform hover:scale-[0.99] duration-150" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span>Recruitment</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors transform hover:scale-[0.99] duration-150" href="#">
+<span class="material-symbols-outlined">star</span>
+<span>Talent</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors transform hover:scale-[0.99] duration-150" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Finance</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors transform hover:scale-[0.99] duration-150" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span>Attendance</span>
+</a>
+</li>
+</ul>
+<div class="px-md py-md mt-auto">
+<button class="w-full flex items-center justify-center gap-sm py-sm px-md rounded-lg bg-surface-container border border-[#9466ff]/30 text-on-tertiary-container font-label-md hover:bg-[#e5eeff] transition-colors">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span>Zia AI Insights</span>
+</button>
+</div>
+<ul class="flex flex-col gap-xs px-sm pb-md border-t border-outline-variant pt-md mx-sm mt-sm">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Help</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-background text-primary dark:text-primary-fixed font-label-md text-label-md flex justify-between items-center w-full px-grid_margin h-16 border-b border-outline-variant dark:border-outline shrink-0 z-10">
+<div class="flex items-center gap-lg">
+<!-- Search -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-full font-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all" placeholder="Search employees, actions..." type="text"/>
+</div>
+<nav class="hidden lg:flex gap-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-all duration-200" href="#">Directory</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-secondary transition-all duration-200" href="#">Quick Actions</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex items-center gap-sm px-4 py-2 bg-secondary text-on-primary rounded-lg font-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                    Clock In
+                </button>
+<button class="hidden md:flex items-center gap-sm px-4 py-2 bg-surface-container text-on-tertiary-container border border-[#9466ff]/30 rounded-lg font-label-md hover:bg-[#e5eeff] transition-colors">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                    Zia AI
+                </button>
+<div class="flex items-center gap-sm ml-sm border-l border-outline-variant pl-md">
+<button class="p-2 text-on-surface-variant hover:text-secondary rounded-full hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-secondary rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant ml-sm cursor-pointer" data-alt="A professional headshot of a corporate employee on a plain background. Soft, flattering lighting, clean modern aesthetic, conveying trust and competence. High resolution, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOa8eMyIW4R_BAykd_CjwoBDR6EgpTlH5eXoqfZ2Fal8QQ4I8o5xf9-MtjFvNWFibNlRLNC_wi7lj_dImmlbfW8b2KS0oU450PjWmdHve7N9N-hpWaLYLLqYdnPl9mD3_onrtqoFiOuTP-c10nCNjPYp7HZOhLX0CJttoMHEDjVBD_TIDEs-VRGtBQGbKzgiVVfduMOrvdvtu-2PgxWYkap-XvG_8rui76XRj94juDXjvI7FVKapQZMWIeFx_InPkgtQKgNkRTKwQ"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-grid_margin">
+<div class="max-w-7xl mx-auto space-y-grid_gutter">
+<!-- Welcome & Zia Header Section -->
+<div class="flex flex-col xl:flex-row gap-grid_gutter">
+<div class="flex-1 flex flex-col justify-center">
+<h1 class="font-display text-display text-primary mb-xs">Welcome back, Sarah.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here's your organization's pulse for today, October 24.</p>
+</div>
+<!-- Zia AI Summary Card -->
+<div class="xl:w-1/3 bg-surface-container-lowest rounded-xl p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] zia-glow zia-border relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-[#9466ff]/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-on-tertiary-container">auto_awesome</span>
+<span class="font-title-md text-title-md text-on-surface">Zia Insights</span>
+</div>
+<ul class="space-y-sm font-body-sm text-body-sm">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-error text-base mt-0.5">priority_high</span>
+<span class="text-on-surface-variant"><strong>3 high-priority requisitions</strong> are at risk of missing target fill dates.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-[#0058be] text-base mt-0.5">info</span>
+<span class="text-on-surface-variant"><strong>5 attendance anomalies</strong> detected in Engineering this week.</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-[#0058be] text-base mt-0.5">trending_up</span>
+<span class="text-on-surface-variant">Turnover rate down 1.2% QOQ.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-grid_gutter">
+<!-- Headcount Trend (Spans 8 cols) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-title-md text-title-md text-primary">Headcount Trend</h2>
+<button class="p-1 text-on-surface-variant hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex-1 min-h-[240px] relative border-b border-l border-outline-variant/30 flex items-end pt-8">
+<!-- Faux Chart Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-8">
+<div class="w-full border-t border-outline-variant/20"></div>
+<div class="w-full border-t border-outline-variant/20"></div>
+<div class="w-full border-t border-outline-variant/20"></div>
+<div class="w-full border-t border-outline-variant/20"></div>
+</div>
+<!-- Faux Bars -->
+<div class="w-full flex justify-around items-end h-full px-4 gap-2 z-10 pb-1">
+<div class="w-1/6 bg-secondary-container/40 hover:bg-secondary-container transition-colors rounded-t-sm h-[40%] group relative"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity">142</span></div>
+<div class="w-1/6 bg-secondary-container/60 hover:bg-secondary-container transition-colors rounded-t-sm h-[55%] group relative"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity">156</span></div>
+<div class="w-1/6 bg-secondary-container/70 hover:bg-secondary-container transition-colors rounded-t-sm h-[50%] group relative"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity">148</span></div>
+<div class="w-1/6 bg-secondary-container/80 hover:bg-secondary-container transition-colors rounded-t-sm h-[70%] group relative"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity">180</span></div>
+<div class="w-1/6 bg-secondary hover:bg-secondary transition-colors rounded-t-sm h-[85%] group relative"><span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity text-primary font-bold">210</span></div>
+</div>
+</div>
+<div class="flex justify-around mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+</div>
+</div>
+<!-- Pending Approvals (Spans 4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-title-md text-title-md text-primary">Pending Approvals</h2>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded-full font-label-sm">4 New</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-1">
+<ul class="space-y-sm">
+<li class="p-sm bg-surface rounded-lg border border-outline-variant/30 hover:border-secondary/50 transition-colors cursor-pointer">
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface">Leave Request</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Mark Davis • Sick Leave (2 Days)</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-secondary text-on-primary font-label-sm py-1 rounded">Approve</button>
+<button class="flex-1 bg-surface border border-outline text-on-surface font-label-sm py-1 rounded hover:bg-surface-container">Review</button>
+</div>
+</li>
+<li class="p-sm bg-surface rounded-lg border border-outline-variant/30 hover:border-secondary/50 transition-colors cursor-pointer">
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface">Expense Report</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Anita Patel • Q3 Client Travel ($1,240)</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-secondary text-on-primary font-label-sm py-1 rounded">Approve</button>
+<button class="flex-1 bg-surface border border-outline text-on-surface font-label-sm py-1 rounded hover:bg-surface-container">Review</button>
+</div>
+</li>
+<li class="p-sm bg-surface rounded-lg border border-outline-variant/30 hover:border-secondary/50 transition-colors cursor-pointer">
+<div class="flex justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface">Timesheet</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1d ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Contractor Team Alpha</p>
+</li>
+</ul>
+</div>
+<button class="mt-md w-full text-center font-label-md text-secondary hover:underline">View All Approvals</button>
+</div>
+<!-- Recruitment Pipeline (Spans 6 cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-title-md text-title-md text-primary">Recruitment Pipeline</h2>
+<button class="text-secondary font-label-md hover:underline">Open ATS</button>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Senior Frontend Engineer</span>
+<span class="text-on-surface-variant">12 Candidates</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2 flex overflow-hidden">
+<div class="bg-[#004395] h-2 w-1/2"></div> <!-- Screened -->
+<div class="bg-secondary h-2 w-1/4 border-l border-surface-variant"></div> <!-- Interviewing -->
+<div class="bg-[#9466ff] h-2 w-1/12 border-l border-surface-variant"></div> <!-- Offer -->
+</div>
+<div class="flex justify-between font-label-sm text-[10px] mt-1 text-on-surface-variant">
+<span>Screening</span>
+<span>Interviews</span>
+<span>Offer</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">Product Marketing Manager</span>
+<span class="text-on-surface-variant">8 Candidates</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2 flex overflow-hidden">
+<div class="bg-[#004395] h-2 w-3/4"></div>
+<div class="bg-secondary h-2 w-1/8 border-l border-surface-variant"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface">HR Business Partner</span>
+<span class="text-on-surface-variant">24 Candidates</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2 flex overflow-hidden">
+<div class="bg-[#004395] h-2 w-1/4"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Leaves (Spans 6 cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-title-md text-title-md text-primary">Upcoming Leaves (Next 7 Days)</h2>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-secondary">calendar_month</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 font-label-sm text-label-sm text-on-surface-variant">
+<th class="pb-2 font-medium">Employee</th>
+<th class="pb-2 font-medium">Type</th>
+<th class="pb-2 font-medium">Duration</th>
+<th class="pb-2 font-medium">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors">
+<td class="py-2 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#d8e2ff] text-[#001a42] flex items-center justify-center font-bold text-[10px]">JD</div>
+                                            Jane Doe
+                                        </td>
+<td class="py-2">Annual Leave</td>
+<td class="py-2">Oct 25 - Oct 28</td>
+<td class="py-2"><span class="bg-[#dce9ff] text-[#004395] px-2 py-0.5 rounded-full text-[10px] font-semibold">Approved</span></td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container-low transition-colors">
+<td class="py-2 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#ffdad6] text-[#93000a] flex items-center justify-center font-bold text-[10px]">RS</div>
+                                            Robert Smith
+                                        </td>
+<td class="py-2">Sick Leave</td>
+<td class="py-2">Oct 24 (Today)</td>
+<td class="py-2"><span class="bg-[#dce9ff] text-[#004395] px-2 py-0.5 rounded-full text-[10px] font-semibold">Approved</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-2 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-[#e9ddff] text-[#23005c] flex items-center justify-center font-bold text-[10px]">EL</div>
+                                            Elena Lee
+                                        </td>
+<td class="py-2">Maternity</td>
+<td class="py-2">Starts Oct 27</td>
+<td class="py-2"><span class="bg-[#dce9ff] text-[#004395] px-2 py-0.5 rounded-full text-[10px] font-semibold">Approved</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus HRMS - Collaboration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#5516be",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "secondary": "#0058be",
+                      "on-surface": "#0b1c30",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#23005c",
+                      "surface-bright": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#131b2e",
+                      "secondary-container": "#2170e4",
+                      "on-primary-container": "#7c839b",
+                      "on-error": "#ffffff",
+                      "surface-dim": "#cbdbf5",
+                      "primary": "#000000",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#dae2fd",
+                      "on-surface-variant": "#45464d",
+                      "on-secondary-fixed": "#001a42",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-tertiary-fixed": "#23005c",
+                      "surface": "#f8f9ff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-tint": "#565e74",
+                      "on-tertiary": "#ffffff",
+                      "secondary-fixed": "#d8e2ff",
+                      "outline": "#76777d",
+                      "inverse-on-surface": "#eaf1ff",
+                      "tertiary": "#000000",
+                      "surface-container-high": "#dce9ff",
+                      "background": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#d0bcff",
+                      "on-primary-fixed": "#131b2e",
+                      "error": "#ba1a1a",
+                      "on-background": "#0b1c30",
+                      "on-secondary-container": "#fefcff",
+                      "surface-variant": "#d3e4fe",
+                      "tertiary-fixed": "#e9ddff",
+                      "on-tertiary-container": "#9466ff",
+                      "on-secondary-fixed-variant": "#004395",
+                      "inverse-surface": "#213145",
+                      "surface-container": "#e5eeff",
+                      "surface-container-low": "#eff4ff",
+                      "outline-variant": "#c6c6cd",
+                      "inverse-primary": "#bec6e0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "grid_columns": "12",
+                      "md": "16px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "grid_gutter": "24px",
+                      "grid_margin": "32px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "2xl": "48px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<nav class="bg-surface-container-lowest flex flex-col h-full py-md overflow-y-auto docked h-screen left-0 w-64 shadow-sm z-20 flex-shrink-0">
+<!-- Header -->
+<div class="px-lg pb-lg mb-sm border-b border-surface-container-high">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-weight="fill">domain</span>
+</div>
+<div>
+<h1 class="text-title-lg font-title-lg font-bold text-primary">Nexus HRMS</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enterprise Suite</p>
+</div>
+</div>
+</div>
+<!-- Main Tabs -->
+<div class="flex-1 flex flex-col gap-1 px-sm">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-[0.99] transition-transform duration-150">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-[0.99] transition-transform duration-150">groups</span>
+<span class="font-label-md text-label-md">Core HR</span>
+</a>
+<!-- Using Talent as the active state for a collaboration/messaging context, though arguably none fit perfectly. Will stick to the closest available option or default inactive. Choosing to leave all inactive and highlight a sub-nav for the actual app area if needed, but strict rules say pick one. Let's pick Talent as collaboration is part of talent management. Actually, collaboration isn't really one of these. Let's make "Dashboard" active as a fallback if no direct match, but rule says "Do NOT just default to the first item." Let's assume this is a module launched from Quick Actions. I'll make Core HR active. -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary font-bold border-r-4 border-secondary bg-surface-container-high scale-[0.99] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-xl">person_search</span>
+<span class="font-label-md text-label-md">Recruitment</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-[0.99] transition-transform duration-150">star</span>
+<span class="font-label-md text-label-md">Talent</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-[0.99] transition-transform duration-150">payments</span>
+<span class="font-label-md text-label-md">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-[0.99] transition-transform duration-150">event_available</span>
+<span class="font-label-md text-label-md">Attendance</span>
+</a>
+</div>
+<!-- CTA & Footer -->
+<div class="px-sm mt-auto flex flex-col gap-sm">
+<button class="mx-3 mb-4 py-3 px-4 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center gap-2 hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant group-hover:scale-[0.99] transition-transform duration-150">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-surface">Zia AI Insights</span>
+</button>
+<div class="border-t border-surface-container-high pt-sm flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col h-full overflow-hidden bg-background">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface border-b border-outline-variant docked full-width top-0 flex justify-between items-center w-full px-grid_margin h-16 z-10 flex-shrink-0">
+<!-- Left: Search -->
+<div class="flex items-center w-1/3 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 pl-10 pr-4 font-body-sm text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary focus:outline-none transition-all placeholder:text-on-surface-variant/70" placeholder="Search across Nexus..." type="text"/>
+</div>
+</div>
+<!-- Center: Navigation -->
+<nav class="hidden md:flex items-center gap-xl h-full">
+<a class="h-full flex items-center font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1 opacity-80" href="#">Directory</a>
+<a class="h-full flex items-center font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all duration-200" href="#">Quick Actions</a>
+</nav>
+<!-- Right: Actions -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-secondary transition-all duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-secondary transition-all duration-200">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-secondary transition-all duration-200">
+<span class="material-symbols-outlined">apps</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant/50 mx-2"></div>
+<button class="px-4 py-2 rounded-full bg-surface border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-sm">auto_awesome</span>
+                    Zia AI
+                </button>
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition-colors">
+                    Clock In
+                </button>
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant overflow-hidden cursor-pointer hover:ring-2 ring-secondary ring-offset-2 ring-offset-surface transition-all">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate employee in a light, modern office setting. The individual is wearing a smart-casual outfit. The lighting is soft and bright, adhering to a clean, authoritative corporate aesthetic typical of enterprise software. The background is slightly blurred to maintain focus on the subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoZYmEn0yJz1AjmLSHGEEHhjbjPo9hpF13WtTdhXFSulnUAOo-Qgr8tNnCiE8M90ztb5Nb8VksNDW6oZMibvWxMn-oV53c3IeNC3wyMKqaCNWJTA3SGkq4f4NTYblP7jsGh1Kd2KfaaCuf4vEabX85lD8PVLYtFFobaQkkKDmoHKCrHbjXnS6CVE41LglPtciPQ8MbEbyZeMiI01wx8kKqqqINis_JdFbxL5uDkkN9DIuhdWrjjOjd__nD1Rn5xUjDjGX31EKQWSg"/>
+</div>
+</div>
+</header>
+<!-- Messaging App Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Secondary Sidebar: Channels & DMs -->
+<aside class="w-72 bg-surface-container-lowest border-r border-outline-variant flex flex-col h-full flex-shrink-0 z-0">
+<!-- Workspace Header -->
+<div class="p-md border-b border-surface-container flex justify-between items-center bg-surface-container-lowest">
+<h2 class="font-title-md text-title-md text-on-surface font-bold">Engineering Team</h2>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-lg">edit_square</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto py-sm">
+<!-- Channels Section -->
+<div class="mb-lg">
+<div class="px-md py-xs flex justify-between items-center group cursor-pointer text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Channels</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+<ul class="mt-1 flex flex-col gap-0.5">
+<li>
+<a class="flex items-center gap-2 px-md py-1.5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-sm font-light">tag</span>
+<span class="font-body-sm text-body-sm font-medium">announcements</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between px-md py-1.5 bg-secondary-container/10 text-secondary font-bold border-l-2 border-secondary transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm font-light">tag</span>
+<span class="font-body-sm text-body-sm">proj-apollo-launch</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2 px-md py-1.5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-sm font-light">lock</span>
+<span class="font-body-sm text-body-sm font-medium">lead-sync</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-2 px-md py-1.5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-sm font-light">tag</span>
+<span class="font-body-sm text-body-sm font-medium">dept-frontend</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Direct Messages Section -->
+<div>
+<div class="px-md py-xs flex justify-between items-center group cursor-pointer text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Direct Messages</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+<ul class="mt-1 flex flex-col gap-0.5">
+<li>
+<a class="flex items-center gap-3 px-md py-1.5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<div class="relative w-5 h-5 rounded-md overflow-hidden">
+<img alt="Sarah Chen" class="w-full h-full object-cover" data-alt="Professional headshot of a smiling woman in a light-filled corporate office setting. She is wearing a modern blazer. Soft, natural lighting highlights a clean, authoritative enterprise software aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPH3dp66_A1z2MpG6N4DKIXWVu85KfWW7_E07HcAJ6a86NAcMsUtMKFLS4spyIYjD3MNLUEi5jgkg8eeaU03dNuojyPeh6Bpmh_IheyVubysxzFRrY8ZO0rFDrsaVLA9R5kLSEx5tyWd0764xPyQ31b6jQqPXGsrQtY3iFjEgxledxmFtfnlsMDsBwNlwhCA3f7qGvWCjIN81jUjsW6Gv4oa-YExpb5hkhMeJPeXf3R0H-WWephkB5Qh3Zl3oV6pX74-Mn1Yny-10"/>
+</div>
+<span class="font-body-sm text-body-sm font-medium">Sarah Chen</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-md py-1.5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<div class="relative w-5 h-5 rounded-md overflow-hidden">
+<img alt="Marcus Johnson" class="w-full h-full object-cover" data-alt="Professional headshot of a serious man in a modern corporate environment. He is wearing a button-down shirt. Clean, minimalistic lighting reflecting an efficient, enterprise-grade software interface context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzKWYjiMWK-DZButsgCII_rr7zS8FtVnSOfHyuQ7zr22XVmGMsthdRwAX5301p7muEdots-_nwmdApD3HB_aEAynrbyu36TK-wHFoa8mG0791HJmImtbpvaasuvXO-2gFbIiqKJ3G8NgPNbOb6cyj8jkLW7g0NgeyVILW4swZoJ4paSyXpKUiLFc532ZnSzt9lHtg6VNSqDw8P9x5j-Cp17bBcSaYiNbTCXpfx2Ie1m73BY9oyEzbjH8vra3b24mb2SaN2Z5Q8y7A"/>
+</div>
+<span class="font-body-sm text-body-sm font-medium">Marcus Johnson</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between px-md py-1.5 text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<div class="flex items-center gap-3">
+<div class="relative w-5 h-5 rounded-md overflow-hidden bg-primary-container flex items-center justify-center text-on-primary-container font-label-sm text-[8px]">
+                                            AI
+                                        </div>
+<span class="font-body-sm text-body-sm font-medium">Zia Assistant</span>
+</div>
+<div class="px-1.5 py-0.5 rounded-full bg-on-tertiary-fixed-variant text-white text-[10px] font-bold leading-none">2</div>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</aside>
+<!-- Chat Area -->
+<section class="flex-1 flex flex-col h-full bg-surface-bright relative">
+<!-- Chat Header -->
+<header class="h-16 border-b border-outline-variant/50 bg-surface/80 backdrop-blur-md px-lg flex justify-between items-center sticky top-0 z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">tag</span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">proj-apollo-launch</h3>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm text-[11px]">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">group</span> 12 members</span>
+<span>•</span>
+<span class="truncate max-w-xs">Coordinate final release tasks for Project Apollo Q3 launch.</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2 mr-2">
+<img alt="Member" class="w-7 h-7 rounded-full border-2 border-surface object-cover" data-alt="A small circular avatar of a professional woman in a modern office, representing a team member in a corporate chat interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4hz4vDGEIyTX48K6c__6E9QvVNwxbLgcyflc1EWhPycMsMcL9Vn3sjVQx7gYO2gXd_sg3lH8LCQBMCibmvcnrL9x_sZGr4iNUYrQIoDmV5WneP3BEIu5v29rKTsE19QBreJMsuoaSjxVYJ45rnywmnRqO4PF1tfaHFWvfeoMAvc-iZLyErMByxCDE-epj9wvOzlrYRW6X82oVVAqWBkmFaRh_VZjwbawE9OR6p6HXfxcafys5DbBStxw7gb7A1Mp89vtX_g0d8A8"/>
+<img alt="Member" class="w-7 h-7 rounded-full border-2 border-surface object-cover" data-alt="A small circular avatar of a professional man in a modern office, representing a team member in a corporate chat interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUVWnMgeW_vMprohcG8lkc6Z2FvwIycwsxYlFes5Jzdn1__BFlO6S9g1vCuZ9XuCaJeIcou_Wl3OJ2Y8PSx9FkX2EnBQJaKO5RJthX2AxXhxIK5gdaadPewl4QNY_tjtGaWmYvStSGJ2t3g5CqW7360kQfoqa19MaZNq_RIg69wOa3NADvOVdmtV63MaA8fK1wMOvAx8w_oxUP7MjlBHq3RMAz43OIvM4CeiAs2jQTlxDVTwi21udahh8yblCmU2HuUTLZ40QO67k"/>
+<div class="w-7 h-7 rounded-full border-2 border-surface bg-surface-variant flex items-center justify-center text-[10px] font-bold text-on-surface-variant">+10</div>
+</div>
+<button class="p-2 rounded-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-lg">call</span>
+</button>
+<button class="p-2 rounded-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-lg">search</span>
+</button>
+<button class="p-2 rounded-md text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-lg">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Messages Feed -->
+<div class="flex-1 overflow-y-auto p-lg flex flex-col gap-xl">
+<!-- Date Separator -->
+<div class="flex items-center justify-center relative my-sm">
+<hr class="w-full border-outline-variant/30 absolute"/>
+<span class="bg-surface-bright px-3 text-label-sm font-label-sm text-on-surface-variant relative z-10 rounded-full border border-outline-variant/30 py-1">Today</span>
+</div>
+<!-- Message Block 1 -->
+<div class="flex gap-4 group">
+<img alt="Marcus" class="w-10 h-10 rounded-lg object-cover mt-1 shadow-sm" data-alt="A square avatar of a professional man, used as a profile picture in an enterprise chat application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKqTJD-ovHUDvs49fnrxAM0NLFd7dei9FfWCoEJDcFqHVFT2zMkgdj-JsVlvxur83fGcWWIT2jTDe_zhuHXn4bPs0qvoxH7qoswKg2a_Z0aMpuqmSYTU1dpNHobWHlfg_3AHfaRaSdjnY82zGX8qQyrANNKxndH9Oxeqg7kvp1n7DYalmqcU3JxEsFKpQTZAppoGfXE5tXNhrYiTIKlK10u1r3x7noYRjZiBe98WEztyznxqkhTzJq5cHc27BaP5Eb60LquYopFGU"/>
+<div class="flex-1">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-title-md text-title-md font-bold text-on-surface">Marcus Johnson</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">9:41 AM</span>
+</div>
+<div class="font-body-md text-body-md text-on-background leading-relaxed">
+                                Team, the final QA report for Apollo is in. We're looking solid, but there's a minor regression in the auth flow on mobile. Can we get eyes on this before the noon sync?
+                            </div>
+<!-- Interaction bar (visible on hover) -->
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 mt-2 -ml-2">
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-secondary"><span class="material-symbols-outlined text-sm">add_reaction</span></button>
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-secondary"><span class="material-symbols-outlined text-sm">reply</span></button>
+<button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-secondary"><span class="material-symbols-outlined text-sm">bookmark</span></button>
+</div>
+</div>
+</div>
+<!-- Message Block 2 (with Attachment) -->
+<div class="flex gap-4 group">
+<img alt="Sarah" class="w-10 h-10 rounded-lg object-cover mt-1 shadow-sm" data-alt="A square avatar of a professional woman, used as a profile picture in an enterprise chat application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARvUWZV_QpZW4PJKOd_45CA0eKR4dgpiqYQrFlkWXHfZiP4ZCKgK8voK24B3vneqFVUOcXn-IpXk7t_x2B9yTIZv6XhmL5En7RK8pvzG9OHcZ1P_Jlu0qWQGMivk0iWhkG8EPiBlK9LRdbLYnER6i18144yavT1mn4xPbY7tONwhHUMyO0RHMks8UMb7cYAI2e1Ss8HI9RyYPIOchOYL4fCKeOdxRlGUNhF3OWALfMNYoF9Id_NP81Rq4g2iRd_6HEJbtQEqKdAyo"/>
+<div class="flex-1">
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-title-md text-title-md font-bold text-on-surface">Sarah Chen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10:05 AM</span>
+</div>
+<div class="font-body-md text-body-md text-on-background leading-relaxed mb-3">
+                                I'll take a look. I've also attached the updated deployment runbook. Please review section 4 carefully.
+                            </div>
+<!-- Attachment Card -->
+<div class="max-w-md border border-outline-variant/50 rounded-xl p-4 bg-surface flex items-center gap-4 hover:border-outline-variant transition-colors cursor-pointer group/card shadow-[0px_1px_3px_rgba(0,0,0,0.05)]">
+<div class="w-12 h-12 rounded-lg bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-2xl">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md font-semibold text-on-surface truncate">Apollo_Deployment_Runbook_v2.pdf</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2.4 MB • PDF Document</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover/card:text-secondary">download</span>
+</div>
+<!-- Thread Reply Summary -->
+<div class="mt-3 flex items-center gap-2">
+<div class="flex -space-x-1">
+<img alt="User" class="w-5 h-5 rounded-full border border-surface object-cover" data-alt="Small round avatar in a chat thread reply summary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJTUbKbt3B7p4RZL1f9lpwpp_qGzgn9cYQp_A1UN32cWwFKThb45oJYrgtcLS8CyK_s2Q8FRAVZ9G4NQFxBobfwOLKTErAxzc1VTwLIQDo7B-nSrDhXsq-Qj-Cp99JutdUOJQnfmIETYsLk80aMZau2DwbEXNP87rg3kf2_G8Zj9TR7jnt6yKi9Mmq9Odaowwf_ejWwaBTwiA4DUfVhcqGLGkDuevAQVNiaYsivFG7EIvPgTVZ9D3eudPQSVafDKFajzv6K5ci1wE"/>
+</div>
+<a class="font-label-sm text-label-sm text-secondary hover:underline font-bold" href="#">2 replies</a>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Last reply today at 10:12 AM</span>
+</div>
+</div>
+</div>
+<!-- Zia AI Insight Card injected in chat -->
+<div class="ml-14 my-2 max-w-2xl border border-outline-variant/30 border-l-4 border-l-on-tertiary-fixed-variant rounded-xl p-4 bg-gradient-to-r from-surface to-surface-bright shadow-sm relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-on-tertiary-fixed-variant/5 rounded-full blur-2xl"></div>
+<div class="flex gap-3 relative z-10">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant mt-0.5">auto_awesome</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold mb-1">Zia Insight</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Based on recent commits, the auth flow regression Marcus mentioned is likely related to PR #4092. Would you like me to draft a summary of the failing integration tests?</p>
+<div class="mt-3 flex gap-2">
+<button class="px-3 py-1.5 rounded-md border border-outline-variant/50 font-label-sm text-label-sm bg-surface hover:bg-surface-container transition-colors">Draft Summary</button>
+<button class="px-3 py-1.5 rounded-md border border-outline-variant/50 font-label-sm text-label-sm bg-surface hover:bg-surface-container transition-colors">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Input Area -->
+<div class="p-md bg-surface-bright border-t border-outline-variant/30">
+<div class="border border-outline-variant focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-xl bg-surface transition-all shadow-sm">
+<!-- Toolbar -->
+<div class="flex items-center gap-1 p-2 border-b border-outline-variant/20 bg-surface-container-lowest rounded-t-xl">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Format"><span class="material-symbols-outlined text-sm">format_bold</span></button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Format"><span class="material-symbols-outlined text-sm">format_italic</span></button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Format"><span class="material-symbols-outlined text-sm">format_list_bulleted</span></button>
+<div class="w-px h-4 bg-outline-variant/50 mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Attach"><span class="material-symbols-outlined text-sm">attach_file</span></button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Mention"><span class="material-symbols-outlined text-sm">alternate_email</span></button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors ml-auto text-on-tertiary-fixed-variant" title="Ask Zia"><span class="material-symbols-outlined text-sm">auto_awesome</span></button>
+</div>
+<!-- Input -->
+<div class="flex items-end px-3 py-2">
+<textarea class="w-full bg-transparent border-none focus:ring-0 resize-none font-body-md text-body-md p-2 placeholder:text-on-surface-variant/60 max-h-32 min-h-[44px]" placeholder="Message #proj-apollo-launch..." rows="1"></textarea>
+<button class="p-2 mb-1 rounded-lg bg-secondary text-on-secondary hover:bg-secondary/90 transition-colors shadow-sm ml-2 self-end">
+<span class="material-symbols-outlined text-[20px] ml-0.5">send</span>
+</button>
+</div>
+</div>
+<div class="flex justify-between items-center mt-2 px-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant">Press <strong>Enter</strong> to send, <strong>Shift+Enter</strong> for new line.</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Inline script for basic textarea auto-resize interaction -->
+<script>
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+            if(this.value === '') this.style.height = '44px';
+        });
+    </script>
+</body></html>

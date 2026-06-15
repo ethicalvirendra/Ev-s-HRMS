@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus HRMS - Learning &amp; Development</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "secondary": "#0058be",
+                        "on-surface": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#23005c",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#131b2e",
+                        "secondary-container": "#2170e4",
+                        "on-primary-container": "#7c839b",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#cbdbf5",
+                        "primary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dae2fd",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed": "#001a42",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-fixed": "#23005c",
+                        "surface": "#f8f9ff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#d8e2ff",
+                        "outline": "#76777d",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary": "#000000",
+                        "surface-container-high": "#dce9ff",
+                        "background": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed": "#131b2e",
+                        "error": "#ba1a1a",
+                        "on-background": "#0b1c30",
+                        "on-secondary-container": "#fefcff",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed": "#e9ddff",
+                        "on-tertiary-container": "#9466ff",
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-surface": "#213145",
+                        "surface-container": "#e5eeff",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#c6c6cd",
+                        "inverse-primary": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "grid_columns": "12",
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "grid_gutter": "24px",
+                        "grid_margin": "32px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "title-lg": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .zia-gradient-border {
+            position: relative;
+        }
+        .zia-gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, #0058be, #5516be);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full py-md overflow-y-auto bg-surface-container-lowest shadow-sm docked h-screen left-0 w-64 flex-shrink-0 z-20">
+<div class="px-md pb-md mb-md border-b border-surface-container-high">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h1 class="text-title-lg font-title-lg font-bold text-primary">Nexus HRMS</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Enterprise Suite</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-sm space-y-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md text-body-md">Core HR</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-body-md text-body-md">Recruitment</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-secondary font-bold border-r-4 border-secondary bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-body-md text-body-md">Talent</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Finance</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-body-md text-body-md">Attendance</span>
+</a>
+</nav>
+<div class="px-md py-sm mt-auto border-t border-surface-container-high">
+<button class="w-full flex items-center justify-center gap-sm px-md py-sm rounded-DEFAULT zia-gradient-border text-on-tertiary-fixed-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors mb-md">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                Zia AI Insights
+            </button>
+<nav class="space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-DEFAULT text-on-surface-variant hover:text-secondary hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md text-body-md">Help</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full overflow-hidden">
+<!-- TopNavBar -->
+<header class="hidden md:flex justify-between items-center w-full px-grid_margin h-16 bg-surface flex-shrink-0 z-10">
+<div class="flex items-center gap-lg">
+<div class="relative w-64 hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full pl-[32px] pr-sm py-sm border border-outline-variant rounded-DEFAULT font-body-sm text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none bg-surface-container-lowest" placeholder="Search courses, skills..." type="text"/>
+</div>
+<nav class="flex items-center gap-md h-full">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all duration-200 h-full flex items-center" href="#">Directory</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-all duration-200 h-full flex items-center" href="#">Quick Actions</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<button class="p-xs hover:bg-surface-container rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-xs hover:bg-surface-container rounded-full transition-colors"><span class="material-symbols-outlined">chat_bubble</span></button>
+<button class="p-xs hover:bg-surface-container rounded-full transition-colors"><span class="material-symbols-outlined">apps</span></button>
+</div>
+<div class="h-6 w-px bg-outline-variant mx-xs"></div>
+<button class="flex items-center gap-xs text-on-tertiary-fixed-variant font-label-md text-label-md hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span> Zia AI
+                </button>
+<button class="bg-primary text-on-primary px-md py-sm rounded-DEFAULT font-label-md text-label-md hover:bg-on-surface transition-colors">Clock In</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-title-md text-title-md overflow-hidden cursor-pointer">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a young corporate employee looking directly at the camera with a subtle smile. The lighting is bright and even, set against a clean, light grey studio background. The subject is wearing a modern, tailored navy blue blazer over a crisp white shirt. The overall mood is approachable, competent, and consistent with a high-end enterprise platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs6uVawsxdjTJYwFaF-GmV2QKs03yORqTR3AI8t2u5F68m1YNJkVv60-1Gu4QFj9A5ZmQhpBgQXcs4BZHu369EbWTJ8lwIhzgP4mj46u83Ih1AjXZtpaHXizymHKkojQPR4jm_V8RZReuB1y1yBYYpLqbw1ZN3ezdIzNpAiVyGvkDOvgjZFJIx-01bpiIqkkuWYzs9LvcHyCxvYkxdcSQkCxiEk0E6uF01INms0oWB3p4PU5JVqFEhy7PGhBKwUaMciuMq2tlsmoU"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-grid_margin bg-background">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">Learning &amp; Development</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Track your progress, complete compliance, and level up your skills.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">history</span> History
+                    </button>
+<button class="px-md py-sm bg-secondary text-on-secondary rounded-DEFAULT font-label-md text-label-md hover:bg-on-secondary-fixed-variant transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">explore</span> Browse Catalog
+                    </button>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid_gutter">
+<!-- Zia AI Insights Banner (Col Span 12) -->
+<div class="col-span-1 md:col-span-12 rounded-xl bg-surface-container-lowest p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] border-l-4 border-on-tertiary-fixed-variant relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
+<div class="absolute top-0 right-0 w-64 h-full opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-on-tertiary-fixed-variant via-transparent to-transparent pointer-events-none"></div>
+<div class="flex items-start gap-md z-10">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-tertiary-fixed-variant shrink-0 mt-1 md:mt-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary">Skill Gap Analysis: Leadership Potential</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs max-w-3xl">Based on your recent performance review and peer feedback, Zia suggests focusing on "Conflict Resolution" and "Strategic Thinking" to prepare for the upcoming Senior Manager promotion cycle.</p>
+</div>
+</div>
+<button class="whitespace-nowrap px-md py-sm bg-surface-container border border-outline-variant rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors z-10 shrink-0">
+                        View Path Recommendations
+                    </button>
+</div>
+<!-- Active Enrollments (Col Span 8) -->
+<div class="col-span-1 md:col-span-8 space-y-md">
+<h3 class="font-title-lg text-title-lg text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">play_circle</span> Active Learning
+                    </h3>
+<!-- Course Card 1 -->
+<div class="rounded-xl bg-surface-container-lowest p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col md:flex-row gap-lg items-start md:items-center">
+<div class="w-full md:w-48 h-32 rounded-lg bg-surface-variant overflow-hidden shrink-0 relative">
+<img alt="Course Thumbnail" class="w-full h-full object-cover" data-alt="A modern, brightly lit corporate training room seen from an over-the-shoulder perspective. A presenter is gesturing towards a sleek, minimalist presentation screen displaying abstract data charts. Several diverse professionals are seated at clean white desks, engaged and taking notes on slim laptops. The atmosphere is focused, collaborative, and professional, utilizing a cool-toned color palette with subtle blue accents indicative of a corporate enterprise environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEHlh65vOL_GtXdGCS5576oM4FjdPPhV_IqQBkfPRt0ta0bRpLtGwPyyzBz-kMdLuEqcgcKAiXQFD9fphGdhwol11lSdjihE7Ow--idIPnuzwNjgm24VTZU4QK1x3NbJ2b-WSd3bkX7woTxmHp8RbNHBd_doHGsaOqZFppm5TDYJNK_xrhzptr4nVekEYg_Jt32yClfmM6RfvfEIBgyyUdqcjV_iPnind35vVus-l05KDZfEqGdejy_GusAqyF9gtZKzqFuNg5mmQ"/>
+<div class="absolute bottom-sm right-sm bg-surface-container-lowest/90 px-2 py-1 rounded text-[10px] font-label-md text-on-surface">Video</div>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-xs">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant rounded text-[10px] font-label-md uppercase tracking-wider">Mandatory Compliance</span>
+<span class="font-label-md text-label-md text-error flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">warning</span> Due in 3 days</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-xs">Information Security &amp; Data Privacy 2024</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Annual required training covering Phishing, GDPR updates, and internal data handling protocols.</p>
+<div class="flex items-center gap-md">
+<div class="flex-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Progress</span>
+<span>75%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<button class="px-md py-sm bg-secondary text-on-secondary rounded-DEFAULT font-label-md text-label-md hover:bg-on-secondary-fixed-variant transition-colors shrink-0">Resume</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="rounded-xl bg-surface-container-lowest p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col md:flex-row gap-lg items-start md:items-center">
+<div class="w-full md:w-48 h-32 rounded-lg bg-surface-variant overflow-hidden shrink-0 relative">
+<img alt="Course Thumbnail" class="w-full h-full object-cover" data-alt="A close-up shot of a modern workspace featuring a high-resolution laptop screen displaying complex financial dashboards and analytics graphs. A pair of stylish reading glasses rests on top of some printed financial reports next to a sleek black pen. The lighting is bright and natural, coming from an unseen window, creating a crisp, analytical, and sophisticated business atmosphere consistent with enterprise software usage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5ygfr9uvbchGTrav0gEQwJOGkQ0ozjpYhzOeWrDmpjpZAukNVf7Ru1wZDKE6CqI7aOKMn8YmvW_cawHA7zCxqGyS-cMQjOVJ-Co3MH1lnol1tVAO8Bbsrw_1EhXhKckL4795q_74DlrxjoIFRPHyIDhWSrp0axNvlpWxdxh_Fm-oY8q2iyosNJ9jT3SvrBR3vfbDkF4kUkHfZhyPP34v3yUKtQf4_lmDBhnX0CTr23EhIRi-52CmplvQz4zPGuUwn7e6Xi_JHrxc"/>
+</div>
+<div class="flex-1 w-full">
+<div class="flex justify-between items-start mb-xs">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant rounded text-[10px] font-label-md uppercase tracking-wider">Professional Development</span>
+</div>
+<h4 class="font-title-md text-title-md text-primary mb-xs">Advanced Financial Modeling</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Techniques for building robust valuation models and forecasting scenarios for Q3 planning.</p>
+<div class="flex items-center gap-md">
+<div class="flex-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-1">
+<span>Progress</span>
+<span>12%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 12%;"></div>
+</div>
+</div>
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors shrink-0">Continue</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar (Col Span 4) -->
+<div class="col-span-1 md:col-span-4 space-y-md">
+<!-- Certification Progress -->
+<div class="rounded-xl bg-surface-container-lowest p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+<h3 class="font-title-md text-title-md text-primary mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">military_tech</span> Certifications
+                        </h3>
+<div class="p-md rounded-lg bg-surface-bright border border-surface-container-high mb-md relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-surface-container-high opacity-50 pointer-events-none">
+<span class="material-symbols-outlined text-[100px]">verified</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-xs relative z-10">In Progress</h4>
+<p class="font-title-md text-title-md text-primary mb-sm relative z-10">AWS Cloud Practitioner</p>
+<div class="flex items-end justify-between relative z-10">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Modules completed: 4/6</p>
+<p class="font-label-sm text-label-sm text-secondary">Est. completion: Nov 15</p>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-surface-container-highest flex items-center justify-center relative">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="66, 100" stroke-width="4"></path>
+</svg>
+<span class="font-label-sm text-label-sm text-primary">66%</span>
+</div>
+</div>
+</div>
+<button class="w-full py-sm text-center text-secondary font-label-md text-label-md hover:bg-surface-container-low rounded-DEFAULT transition-colors">View All Credentials</button>
+</div>
+<!-- Recommended for you -->
+<div class="rounded-xl bg-surface-container-lowest p-lg shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+<h3 class="font-title-md text-title-md text-primary mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">recommend</span> Suggested Paths
+                        </h3>
+<div class="space-y-sm">
+<!-- Suggestion 1 -->
+<div class="flex items-start gap-sm p-sm rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<p class="font-title-sm text-title-md text-primary group-hover:text-secondary transition-colors text-sm">Emotional Intelligence at Work</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">3 hours • Soft Skills • Rated 4.8/5</p>
+</div>
+</div>
+<!-- Suggestion 2 -->
+<div class="flex items-start gap-sm p-sm rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined">data_usage</span>
+</div>
+<div>
+<p class="font-title-sm text-title-md text-primary group-hover:text-secondary transition-colors text-sm">Data-Driven Decision Making</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">5 hours • Leadership • New</p>
+</div>
+</div>
+<!-- Suggestion 3 -->
+<div class="flex items-start gap-sm p-sm rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded bg-surface-variant flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<p class="font-title-sm text-title-md text-primary group-hover:text-secondary transition-colors text-sm">Effective Cross-Team Comms</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">2 hours • Communication</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-xl"></div> <!-- Bottom padding -->
+</main>
+</div>
+</body></html>
