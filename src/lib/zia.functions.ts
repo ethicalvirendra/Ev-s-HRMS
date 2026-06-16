@@ -1,9 +1,15 @@
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { z } from "zod";
 
 export type ZiaMessage = { role: "user" | "assistant"; content: string };
 
 type ChatInput = { messages: ZiaMessage[] };
+
+export type ZiaAction = {
+  name: string;
+  arguments: any;
+};
 
 export const askZia = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
@@ -19,14 +25,21 @@ export const askZia = createServerFn({ method: "POST" })
     }
     return data;
   })
-  .handler(async ({ data, context }): Promise<{ reply: string }> => {
+  .handler(async ({ data, context }): Promise<{ reply: string; action?: ZiaAction }> => {
     const { supabase, userId } = context;
 
     // Gather lightweight HR context for the signed-in user.
-    const [{ data: me }, { data: balances }, { data: today }, { data: empCount }] = await Promise.all([
+    const [
+      { data: me },
+      { data: balances },
+      { data: today },
+      { data: empCount },
+      { data: leaveTypes },
+      { data: packages }
+    ] = await Promise.all([
       supabase
         .from("employees")
-        .select("id, full_name, employee_code, job_title, location, hire_date, department:departments(name)")
+        .select("id, full_name, employee_code, job_title, location, hire_date, department:departments(name), organization_id")
         .eq("user_id", userId)
         .maybeSingle(),
       supabase
@@ -36,12 +49,14 @@ export const askZia = createServerFn({ method: "POST" })
         .eq("year", new Date().getUTCFullYear()),
       supabase
         .from("attendance_logs")
-        .select("clock_in, clock_out, work_date, status")
+        .select("id, clock_in, clock_out, work_date, status")
         .eq("employee_id", (await supabase.rpc("current_employee_id")).data ?? "")
         .order("work_date", { ascending: false })
         .limit(1)
         .maybeSingle(),
       supabase.from("employees").select("id", { count: "exact", head: true }),
+      supabase.from("leave_types").select("id, name"),
+      supabase.from("benefits_packages").select("id, name, provider, type")
     ]);
 
     type BalanceRow = { allocated: number; used: number; leave_type: { name: string } | null };
@@ -65,6 +80,8 @@ export const askZia = createServerFn({ method: "POST" })
       })),
       latest_attendance: today,
       org_employee_count: (empCount as unknown as { count?: number })?.count ?? null,
+      leave_types: leaveTypes ?? [],
+      benefits_packages: packages ?? [],
       today_iso: new Date().toISOString(),
     };
 
@@ -74,20 +91,82 @@ export const askZia = createServerFn({ method: "POST" })
     const systemPrompt = `You are Evai, the friendly AI assistant inside Ev's HRMS.
 You help employees with HR questions: leave balances, attendance, directory lookups, company policy guidance, and quick task help.
 Be concise (under 120 words unless asked for detail). Use bullet points for lists. Never invent data — if context is missing, say so and suggest where to look in the app (Directory, Attendance, Time-off, Payroll, etc.).
+You can perform actions on behalf of the user using tools. Always call the corresponding tool when a user asks you to perform an action (like clocking in, clocking out, requesting time off, enrolling in benefits, or waiving benefits). You must explain what action you are proposing to do. The user will be prompted to approve the action before it is executed.
 Here is verified live context about the current user and org (JSON):\n${JSON.stringify(ctx)}`;
 
-    // Select primary model based on user query complexity (free tier)
-    const lastUserMessage = data.messages[data.messages.length - 1]?.content || "";
-    const isComplex = lastUserMessage.length > 150 || 
-                      /calculate|report|analytics|predict|forecast|summarize|succession|leave balance|payroll/i.test(lastUserMessage);
-    
-    const primaryModel = isComplex ? "google/gemini-2.5-flash:free" : "google/gemini-2.5-flash-lite:free";
-
-    // Fallback models (OpenRouter allows at most 3 items in the fallback array)
-    const fallbackModels = [
-      "google/gemini-2.5-flash:free",
-      "google/gemini-2.5-flash-lite:free",
-      "meta-llama/llama-3-8b-instruct:free"
+    const tools = [
+      {
+        type: "function",
+        function: {
+          name: "clock_in",
+          description: "Clock in for today's work shift",
+          parameters: {
+            type: "object",
+            properties: {
+              notes: { type: "string", description: "Optional check-in notes or location info" }
+            }
+          }
+        }
+      },
+      {
+        type: "function",
+        function: {
+          name: "clock_out",
+          description: "Clock out of the current open work shift. Requires the active shift ID.",
+          parameters: {
+            type: "object",
+            properties: {
+              id: { type: "string", description: "The UUID of the active attendance log to clock out from" }
+            },
+            required: ["id"]
+          }
+        }
+      },
+      {
+        type: "function",
+        function: {
+          name: "request_leave",
+          description: "Submit a leave request / time off",
+          parameters: {
+            type: "object",
+            properties: {
+              leave_type_id: { type: "string", description: "The UUID of the leave type" },
+              start_date: { type: "string", description: "Start date in format YYYY-MM-DD" },
+              end_date: { type: "string", description: "End date in format YYYY-MM-DD" },
+              reason: { type: "string", description: "Optional reason or note for the leave request" }
+            },
+            required: ["leave_type_id", "start_date", "end_date"]
+          }
+        }
+      },
+      {
+        type: "function",
+        function: {
+          name: "enroll_benefit",
+          description: "Enroll in an insurance or retirement benefit package",
+          parameters: {
+            type: "object",
+            properties: {
+              package_id: { type: "string", description: "The UUID of the benefits package" }
+            },
+            required: ["package_id"]
+          }
+        }
+      },
+      {
+        type: "function",
+        function: {
+          name: "waive_benefit",
+          description: "Waive enrollment in a benefits package",
+          parameters: {
+            type: "object",
+            properties: {
+              package_id: { type: "string", description: "The UUID of the benefits package" }
+            },
+            required: ["package_id"]
+          }
+        }
+      }
     ];
 
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -99,9 +178,9 @@ Here is verified live context about the current user and org (JSON):\n${JSON.str
         "X-OpenRouter-Title": "Ev's HRMS",
       },
       body: JSON.stringify({
-        model: primaryModel,
-        models: fallbackModels.filter(m => m !== primaryModel),
+        model: "google/gemini-2.5-flash",
         messages: [{ role: "system", content: systemPrompt }, ...data.messages],
+        tools: tools,
         max_tokens: 1000,
       }),
     });
@@ -117,7 +196,55 @@ Here is verified live context about the current user and org (JSON):\n${JSON.str
       console.error("Evai AI gateway error", res.status, text);
       return { reply: "Sorry, I couldn't reach the AI service. Please try again shortly." };
     }
-    const json = (await res.json()) as { choices?: { message?: { content?: string } }[] };
-    const reply = json.choices?.[0]?.message?.content?.trim() || "I don't have an answer for that.";
-    return { reply };
+
+    const json = (await res.json()) as {
+      choices?: {
+        message?: {
+          content?: string;
+          tool_calls?: {
+            id: string;
+            type: "function";
+            function: { name: string; arguments: string };
+          }[];
+        };
+      }[];
+    };
+
+    const choice = json.choices?.[0];
+    const reply = choice?.message?.content?.trim() || "";
+    const toolCall = choice?.message?.tool_calls?.[0];
+
+    if (toolCall) {
+      let args = {};
+      try {
+        args = JSON.parse(toolCall.function.arguments || "{}");
+      } catch (err) {}
+
+      let proposedMessage = reply;
+      if (!proposedMessage) {
+        if (toolCall.function.name === "clock_in") {
+          proposedMessage = "I would like to clock you in for your shift. Please confirm.";
+        } else if (toolCall.function.name === "clock_out") {
+          proposedMessage = "I would like to clock you out of your current shift. Please confirm.";
+        } else if (toolCall.function.name === "request_leave") {
+          proposedMessage = `I would like to submit a leave request from ${args.start_date} to ${args.end_date}. Please confirm.`;
+        } else if (toolCall.function.name === "enroll_benefit") {
+          proposedMessage = "I would like to enroll you in this benefits package. Please confirm.";
+        } else if (toolCall.function.name === "waive_benefit") {
+          proposedMessage = "I would like to waive this benefits package for you. Please confirm.";
+        } else {
+          proposedMessage = `I would like to perform this action: ${toolCall.function.name}. Please confirm.`;
+        }
+      }
+
+      return {
+        reply: proposedMessage,
+        action: {
+          name: toolCall.function.name,
+          arguments: args,
+        },
+      };
+    }
+
+    return { reply: reply || "I don't have an answer for that." };
   });
