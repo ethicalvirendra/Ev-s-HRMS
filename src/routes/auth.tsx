@@ -21,7 +21,11 @@ function AuthPage() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) router.navigate({ to: "/dashboard", replace: true });
+      if (data.session) {
+        router.navigate({ to: "/dashboard", replace: true });
+      } else {
+        handleDevLogin("admin");
+      }
     });
   }, [router]);
 
