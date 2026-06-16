@@ -76,6 +76,22 @@ You help employees with HR questions: leave balances, attendance, directory look
 Be concise (under 120 words unless asked for detail). Use bullet points for lists. Never invent data — if context is missing, say so and suggest where to look in the app (Directory, Attendance, Time-off, Payroll, etc.).
 Here is verified live context about the current user and org (JSON):\n${JSON.stringify(ctx)}`;
 
+    // Select primary model based on user query complexity (free tier)
+    const lastUserMessage = data.messages[data.messages.length - 1]?.content || "";
+    const isComplex = lastUserMessage.length > 150 || 
+                      /calculate|report|analytics|predict|forecast|summarize|succession|leave balance|payroll/i.test(lastUserMessage);
+    
+    const primaryModel = isComplex ? "google/gemini-2.5-flash:free" : "google/gemini-2.5-flash-lite:free";
+
+    // Fallback models (all explicitly free on OpenRouter)
+    const fallbackModels = [
+      "google/gemini-2.5-flash:free",
+      "google/gemini-2.5-flash-lite:free",
+      "meta-llama/llama-3-8b-instruct:free",
+      "mistralai/mistral-7b-instruct:free",
+      "microsoft/phi-3-medium-128k-instruct:free"
+    ];
+
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -85,7 +101,8 @@ Here is verified live context about the current user and org (JSON):\n${JSON.str
         "X-OpenRouter-Title": "Ev's HRMS",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: primaryModel,
+        models: fallbackModels.filter(m => m !== primaryModel),
         messages: [{ role: "system", content: systemPrompt }, ...data.messages],
         max_tokens: 1000,
       }),
