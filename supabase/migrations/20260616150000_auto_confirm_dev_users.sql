@@ -1,7 +1,6 @@
 -- Auto-confirm any existing developer bypass users
 UPDATE auth.users
-SET email_confirmed_at = COALESCE(email_confirmed_at, now()),
-    confirmed_at = COALESCE(confirmed_at, now())
+SET email_confirmed_at = COALESCE(email_confirmed_at, now())
 WHERE email IN ('dev-admin@nexus.local', 'dev-manager@nexus.local', 'dev-employee@nexus.local');
 
 -- Redefine handle_new_user to automatically confirm developer emails
@@ -98,8 +97,7 @@ BEGIN
   -- Auto-confirm email in auth.users if it's a developer bypass email
   IF NEW.email IN ('dev-admin@nexus.local', 'dev-manager@nexus.local', 'dev-employee@nexus.local') THEN
     UPDATE auth.users
-    SET email_confirmed_at = COALESCE(email_confirmed_at, now()),
-        confirmed_at = COALESCE(confirmed_at, now())
+    SET email_confirmed_at = COALESCE(email_confirmed_at, now())
     WHERE id = NEW.id;
   END IF;
   
