@@ -44,5 +44,10 @@ export default defineConfig({
     resolve: {
       dedupe: ["react", "react-dom"],
     },
+    server: {
+      watch: {
+        ignored: ["**/.env", "**/vite.config.ts"],
+      },
+    },
   },
 });
