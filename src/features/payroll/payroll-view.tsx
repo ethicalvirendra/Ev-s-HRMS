@@ -108,7 +108,7 @@ export function PayrollView() {
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-violet-100/10 opacity-50 pointer-events-none" />
               <p className="text-[10px] uppercase tracking-wider text-violet-500 mb-1 font-semibold flex items-center gap-1">
                 <span className="material-symbols-outlined text-xs">auto_awesome</span>
-                Zia Projection
+                Evai Projection
               </p>
               <p className="text-xl font-bold text-slate-900">$115k - $120k</p>
               <p className="mt-1.5 text-[10px] text-slate-500">Est. EOY Total Comp</p>

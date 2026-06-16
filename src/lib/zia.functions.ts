@@ -71,7 +71,7 @@ export const askZia = createServerFn({ method: "POST" })
     const apiKey = process.env.LOVABLE_API_KEY;
     if (!apiKey) throw new Error("AI gateway not configured");
 
-    const systemPrompt = `You are Zia, the friendly AI assistant inside Nexus HRMS.
+    const systemPrompt = `You are Evai, the friendly AI assistant inside Ev's HRMS.
 You help employees with HR questions: leave balances, attendance, directory lookups, company policy guidance, and quick task help.
 Be concise (under 120 words unless asked for detail). Use bullet points for lists. Never invent data — if context is missing, say so and suggest where to look in the app (Directory, Attendance, Time-off, Payroll, etc.).
 Here is verified live context about the current user and org (JSON):\n${JSON.stringify(ctx)}`;
@@ -92,7 +92,7 @@ Here is verified live context about the current user and org (JSON):\n${JSON.str
     if (res.status === 402) return { reply: "AI credits are exhausted on this workspace. Please top up Lovable AI credits." };
     if (!res.ok) {
       const text = await res.text().catch(() => "");
-      console.error("Zia AI gateway error", res.status, text);
+      console.error("Evai AI gateway error", res.status, text);
       return { reply: "Sorry, I couldn't reach the AI service. Please try again shortly." };
     }
     const json = (await res.json()) as { choices?: { message?: { content?: string } }[] };

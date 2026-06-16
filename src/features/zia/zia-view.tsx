@@ -13,7 +13,7 @@ const SUGGESTIONS = [
 export function ZiaView() {
   const ask = useServerFn(askZia);
   const [messages, setMessages] = useState<ZiaMessage[]>([
-    { role: "assistant", content: "Hi! I'm Zia, your HR assistant. Ask me about your leave, attendance, the directory, or anything HR-related." },
+    { role: "assistant", content: "Hi! I'm Evai, your HR assistant. Ask me about your leave, attendance, the directory, or anything HR-related." },
   ]);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ export function ZiaView() {
           <span className="material-symbols-outlined">auto_awesome</span>
         </div>
         <div>
-          <div className="text-base font-semibold">Zia</div>
+          <div className="text-base font-semibold">Evai</div>
           <div className="text-xs text-slate-500">Your AI HR assistant · powered by Gemini</div>
         </div>
       </div>
@@ -69,7 +69,7 @@ export function ZiaView() {
         ))}
         {mutation.isPending && (
           <div className="flex justify-start">
-            <div className="rounded-2xl bg-slate-100 px-4 py-2 text-sm text-slate-500">Zia is thinking…</div>
+            <div className="rounded-2xl bg-slate-100 px-4 py-2 text-sm text-slate-500">Evai is thinking…</div>
           </div>
         )}
       </div>
@@ -98,7 +98,7 @@ export function ZiaView() {
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask Zia anything…"
+          placeholder="Ask Evai anything…"
           className="flex-1 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
           disabled={mutation.isPending}
         />

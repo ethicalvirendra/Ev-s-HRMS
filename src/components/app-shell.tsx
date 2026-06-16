@@ -29,7 +29,7 @@ export function AppShell({ children, title }: { children: ReactNode; title?: str
             <span className="material-symbols-outlined text-base">corporate_fare</span>
           </div>
           <div>
-            <div className="text-sm font-bold leading-tight">Nexus HRMS</div>
+            <div className="text-sm font-bold leading-tight">Ev's HRMS</div>
             <div className="text-[10px] uppercase tracking-wider text-slate-500">Enterprise Suite</div>
           </div>
         </div>

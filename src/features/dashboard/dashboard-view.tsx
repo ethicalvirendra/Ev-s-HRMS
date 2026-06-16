@@ -48,7 +48,7 @@ export function DashboardView() {
     { label: "Succession Planning", icon: "assignment_ind", colorClass: "text-indigo-500", to: "/succession" },
     { label: "Marketplace", icon: "store", colorClass: "text-blue-500", to: "/learning" },
     { label: "Developer Space", icon: "code", colorClass: "text-red-500", to: "/auth" },
-    { label: "Zia", icon: "auto_awesome", colorClass: "text-violet-600", to: "/zia" },
+    { label: "Evai", icon: "auto_awesome", colorClass: "text-violet-600", to: "/zia" },
   ];
 
   const orgName = d?.organization?.name || "Ev";

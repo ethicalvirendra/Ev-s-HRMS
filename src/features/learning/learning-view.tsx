@@ -51,7 +51,7 @@ export function LearningView() {
           </div>
           <div>
             <h3 className="text-sm font-bold text-slate-900">Skill Gap Analysis: Leadership Potential</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-3xl">Based on your recent performance review and goals, Zia suggests focusing on "Conflict Resolution" and "Strategic Thinking" to prepare for promotion cycles.</p>
+            <p className="text-xs text-slate-500 mt-1 max-w-3xl">Based on your recent performance review and goals, Evai suggests focusing on "Conflict Resolution" and "Strategic Thinking" to prepare for promotion cycles.</p>
           </div>
         </div>
       </div>

@@ -523,7 +523,7 @@ export function SurveysView() {
                 <strong>Anonymity Guarantee</strong>: The system doesn't link employee IDs to answer rows. Employee ID is only mapped to a boolean value representing whether they completed the survey.
               </div>
               <p className="text-[10px] text-slate-400 pt-2">
-                Need templates or scheduling surveys? Zia can assist you in generating survey content!
+                Need templates or scheduling surveys? Evai can assist you in generating survey content!
               </p>
             </div>
           </div>

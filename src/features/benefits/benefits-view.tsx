@@ -316,7 +316,7 @@ export function BenefitsView() {
                 <li>Changes are effective immediately upon enrollment verification.</li>
               </ul>
               <div className="bg-blue-50/50 border border-blue-100 rounded-lg p-3 text-[10px] text-blue-800">
-                <strong>Need Support?</strong> If you have questions about medical network coverage or dental providers, open a helpdesk ticket or ask Zia Assistant for help.
+                <strong>Need Support?</strong> If you have questions about medical network coverage or dental providers, open a helpdesk ticket or ask Evai Assistant for help.
               </div>
             </div>
           </div>

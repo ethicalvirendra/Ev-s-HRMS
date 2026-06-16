@@ -73,7 +73,7 @@ function ScreenPage() {
   }
   if (screen === "zia") {
     return (
-      <AppShell title="Zia · AI Assistant">
+      <AppShell title="Evai · AI Assistant">
         <ZiaView />
       </AppShell>
     );

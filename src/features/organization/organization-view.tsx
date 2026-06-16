@@ -224,7 +224,7 @@ export function OrganizationView() {
                 <strong>Domain verification</strong>: Match your corporate email suffix to let colleagues onboard dynamically.
               </div>
               <p className="text-[10px] text-slate-400 pt-2">
-                Need more licenses or specific custom domain names? Contact Nexus support.
+                Need more licenses or specific custom domain names? Contact Ev's HRMS support.
               </p>
             </div>
           </div>

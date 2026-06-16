@@ -212,5 +212,5 @@ INSERT INTO public.courses (title, description, category, duration, is_mandatory
   ('Information Security & Data Privacy 2026', 'Annual required training covering Phishing, GDPR updates, and internal data handling protocols.', 'Compliance', '45 mins', true, CURRENT_DATE + INTERVAL '3 days'),
   ('Advanced Financial Modeling', 'Techniques for building robust valuation models and forecasting scenarios for Q3 planning.', 'Professional Development', '2 hours', false, NULL),
   ('Effective Communication in Remote Teams', 'Learn strategies for asynchronous communication, active listening, and conflict resolution.', 'Leadership', '1.5 hours', false, NULL),
-  ('Introduction to Zia AI Systems', 'Familiarize yourself with our internal Zia AI Assistant framework and how to query context.', 'Technical', '30 mins', true, CURRENT_DATE + INTERVAL '14 days')
+  ('Introduction to Evai AI Systems', 'Familiarize yourself with our internal Evai AI Assistant framework and how to query context.', 'Technical', '30 mins', true, CURRENT_DATE + INTERVAL '14 days')
 ON CONFLICT (title) DO NOTHING;
