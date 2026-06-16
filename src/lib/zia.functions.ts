@@ -68,28 +68,35 @@ export const askZia = createServerFn({ method: "POST" })
       today_iso: new Date().toISOString(),
     };
 
-    const apiKey = process.env.LOVABLE_API_KEY;
-    if (!apiKey) throw new Error("AI gateway not configured");
+    const apiKey = process.env.OPENROUTER_API_KEY;
+    if (!apiKey) throw new Error("OPENROUTER_API_KEY environment variable is not configured");
 
     const systemPrompt = `You are Evai, the friendly AI assistant inside Ev's HRMS.
 You help employees with HR questions: leave balances, attendance, directory lookups, company policy guidance, and quick task help.
 Be concise (under 120 words unless asked for detail). Use bullet points for lists. Never invent data — if context is missing, say so and suggest where to look in the app (Directory, Attendance, Time-off, Payroll, etc.).
 Here is verified live context about the current user and org (JSON):\n${JSON.stringify(ctx)}`;
 
-    const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${apiKey}`,
+        "HTTP-Referer": "https://ethicalvirendra.github.io/Ev-s-HRMS",
+        "X-OpenRouter-Title": "Ev's HRMS",
       },
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages: [{ role: "system", content: systemPrompt }, ...data.messages],
+        max_tokens: 1000,
       }),
     });
 
     if (res.status === 429) return { reply: "I'm a bit overloaded right now (rate limit). Please try again in a moment." };
-    if (res.status === 402) return { reply: "AI credits are exhausted on this workspace. Please top up Lovable AI credits." };
+    if (res.status === 402) {
+      const text = await res.text().catch(() => "");
+      console.error("Evai AI billing error", res.status, text);
+      return { reply: "AI credits are exhausted. Please top up your OpenRouter credits." };
+    }
     if (!res.ok) {
       const text = await res.text().catch(() => "");
       console.error("Evai AI gateway error", res.status, text);
