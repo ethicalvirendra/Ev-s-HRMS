@@ -83,13 +83,11 @@ Here is verified live context about the current user and org (JSON):\n${JSON.str
     
     const primaryModel = isComplex ? "google/gemini-2.5-flash:free" : "google/gemini-2.5-flash-lite:free";
 
-    // Fallback models (all explicitly free on OpenRouter)
+    // Fallback models (OpenRouter allows at most 3 items in the fallback array)
     const fallbackModels = [
       "google/gemini-2.5-flash:free",
       "google/gemini-2.5-flash-lite:free",
-      "meta-llama/llama-3-8b-instruct:free",
-      "mistralai/mistral-7b-instruct:free",
-      "microsoft/phi-3-medium-128k-instruct:free"
+      "meta-llama/llama-3-8b-instruct:free"
     ];
 
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
