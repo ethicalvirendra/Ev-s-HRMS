@@ -59,6 +59,134 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* User Color Palette */
+  --color-white-100: var(--white-100);
+  --color-white-200: var(--white-200);
+  --color-white-300: var(--white-300);
+  --color-white-400: var(--white-400);
+  --color-white-500: var(--white-500);
+  --color-white-600: var(--white-600);
+  --color-gainsboro-100: var(--gainsboro-100);
+  --color-gainsboro-200: var(--gainsboro-200);
+  --color-darkgray-100: var(--darkgray-100);
+  --color-darkgray-200: var(--darkgray-200);
+  --color-darkgray-300: var(--darkgray-300);
+  --color-darkgray-400: var(--darkgray-400);
+  --color-darkgray-500: var(--darkgray-500);
+  --color-darkslategray-100: var(--darkslategray-100);
+  --color-darkslategray-200: var(--darkslategray-200);
+  --color-darkslategray-300: var(--darkslategray-300);
+  --color-darkgray-default: var(--darkgray);
+  --color-darkslategray-400: var(--darkslategray-400);
+  --color-black-100: var(--black-100);
+  --color-black-200: var(--black-200);
+  --color-black-300: var(--black-300);
+  --color-black-400: var(--black-400);
+  --color-black-500: var(--black-500);
+  --color-black-600: var(--black-600);
+  --color-black-700: var(--black-700);
+  --color-dimgray-100: var(--dimgray-100);
+  --color-dimgray-200: var(--dimgray-200);
+  --color-dimgray-300: var(--dimgray-300);
+  --color-slategray-100: var(--slategray-100);
+  --color-lightgray-100: var(--lightgray-100);
+  --color-whitesmoke-100: var(--whitesmoke-100);
+  --color-whitesmoke-200: var(--whitesmoke-200);
+  --color-whitesmoke-300: var(--whitesmoke-300);
+  --color-whitesmoke-400: var(--whitesmoke-400);
+  --color-whitesmoke-500: var(--whitesmoke-500);
+  --color-whitesmoke-600: var(--whitesmoke-600);
+  --color-whitesmoke-700: var(--whitesmoke-700);
+  --color-royalblue-100: var(--royalblue-100);
+  --color-royalblue-200: var(--royalblue-200);
+  --color-royalblue-300: var(--royalblue-300);
+  --color-blueviolet-100: var(--blueviolet-100);
+  --color-blueviolet-200: var(--blueviolet-200);
+  --color-blueviolet-300: var(--blueviolet-300);
+  --color-ivory-100: var(--ivory-100);
+  --color-ivory-200: var(--ivory-200);
+  --color-orange-100: var(--orange-100);
+  --color-lavender-100: var(--lavender-100);
+  --color-lavender-200: var(--lavender-200);
+  --color-lavender-300: var(--lavender-300);
+  --color-lightsteelblue-100: var(--lightsteelblue-100);
+  --color-cornflowerblue-100: var(--cornflowerblue-100);
+  --color-aliceblue-100: var(--aliceblue-100);
+  --color-aliceblue-200: var(--aliceblue-200);
+  --color-dodgerblue-100: var(--dodgerblue-100);
+  --color-dodgerblue-200: var(--dodgerblue-200);
+  --color-mintcream-100: var(--mintcream-100);
+  --color-mintcream-200: var(--mintcream-200);
+  --color-mintcream-300: var(--mintcream-300);
+  --color-mediumseagreen-100: var(--mediumseagreen-100);
+  --color-mediumspringgreen-100: var(--mediumspringgreen-100);
+  --color-mediumspringgreen-200: var(--mediumspringgreen-200);
+  --color-mediumspringgreen-300: var(--mediumspringgreen-300);
+  --color-forestgreen-100: var(--forestgreen-100);
+  --color-mediumslate-100: var(--mediumslateblue-100);
+  --color-mediumslate-200: var(--mediumslateblue-200);
+  --color-mediumslate-300: var(--mediumslateblue-300);
+  --color-papayawhip-100: var(--papayawhip-100);
+  --color-navajowhite-100: var(--navajowhite-100);
+  --color-sandybrown-100: var(--sandybrown-100);
+  --color-chocolate-100: var(--chocolate-100);
+  --color-chocolate-200: var(--chocolate-200);
+  --color-floralwhite-100: var(--floralwhite-100);
+  --color-darkorange-100: var(--darkorange-100);
+  --color-darkorange-200: var(--darkorange-200);
+  --color-darkorange-300: var(--darkorange-300);
+  --color-darkorange-400: var(--darkorange-400);
+  --color-orangered-100: var(--orangered-100);
+  --color-hotpink-100: var(--hotpink-100);
+  --color-hotpink-200: var(--hotpink-200);
+  --color-lavenderblush-100: var(--lavenderblush-100);
+  --color-lavenderblush-200: var(--lavenderblush-200);
+  --color-lavenderblush-300: var(--lavenderblush-300);
+  --color-thistle-100: var(--thistle-100);
+  --color-mediumpurple-100: var(--mediumpurple-100);
+  --color-ghostwhite-100: var(--ghostwhite-100);
+  --color-ghostwhite-200: var(--ghostwhite-200);
+  --color-darkorchid-100: var(--darkorchid-100);
+  --color-darkorchid-200: var(--darkorchid-200);
+  --color-darkorchid-300: var(--darkorchid-300);
+  --color-darkorchid-400: var(--darkorchid-400);
+  --color-darkorchid-500: var(--darkorchid-500);
+  --color-darkorchid-600: var(--darkorchid-600);
+  --color-salmon-100: var(--salmon-100);
+  --color-crimson-100: var(--crimson-100);
+  --color-crimson-200: var(--crimson-200);
+  --color-crimson-300: var(--crimson-300);
+  --color-crimson-400: var(--crimson-400);
+  --color-crimson-500: var(--crimson-500);
+  --color-lightseagreen-100: var(--lightseagreen-100);
+  --color-khaki-100: var(--khaki-100);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-goldenrod-100: var(--goldenrod-100);
+  --color-darkgoldenrod-100: var(--darkgoldenrod-100);
+  --color-seagreen-100: var(--seagreen-100);
+  --color-seagreen-200: var(--seagreen-200);
+  --color-mediumvioletred-100: var(--mediumvioletred-100);
+  --color-mediumvioletred-200: var(--mediumvioletred-200);
+  --color-plum-100: var(--plum-100);
+  --color-mistyrose-100: var(--mistyrose-100);
+  --color-darkcyan-100: var(--darkcyan-100);
+  --color-azure-100: var(--azure-100);
+  --color-skyblue-100: var(--skyblue-100);
+  --color-steelblue-100: var(--steelblue-100);
+  --color-darkblue-100: var(--darkblue-100);
+  --color-lightpink-100: var(--lightpink-100);
+  --color-firebrick-100: var(--firebrick-100);
+  --color-lemonchiffon-100: var(--lemonchiffon-100);
+  --color-indigo-100: var(--indigo-100);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-silver-100: var(--silver-100);
+  --color-lightslategray-100: var(--lightslategray-100);
+  --color-tomato: var(--tomato);
+  --color-indianred: var(--indianred);
+  --color-peachpuff: var(--peachpuff);
 }
 
 :root {
@@ -95,6 +223,195 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* User Color Palette */
+  /* white */
+  --white-100: #fff;
+  --white-200: rgba(255,255,255,.1);
+  --white-300: rgba(255,255,255,.5);
+  --white-400: rgba(255,255,255,0.95);
+  --white-500: rgba(255,255,255,0.7);
+  --white-600: rgba(255,255,255,0.3);
+  /* gainsboro */
+  --gainsboro-100: #e5e7eb;
+  --gainsboro-200: #e2e2e2;
+  /* darkgray */
+  --darkgray-100: #9ca3af;
+  --darkgray-200: #b1b1b7;
+  --darkgray-300: #999;
+  --darkgray-400: rgba(155,155,155,.8);
+  --darkgray-500: rgba(150,150,150,.25);
+  /* darkslategray */
+  --darkslategray-100: #374151;
+  --darkslategray-200: #333;
+  --darkslategray-300: #3e3e3e;
+  --darkslategray-400: rgba(60,60,60,.6);
+  /* black */
+  --black-100: #111827;
+  --black-200: #1f2937;
+  --black-300: #0f172a;
+  --black-400: #000;
+  --black-500: #141414;
+  --black-600: #2b2b2b;
+  --black-700: rgba(0,0,0,0);
+  /* dimgray */
+  --dimgray-100: #4b5563;
+  --dimgray-200: #555;
+  --dimgray-300: #727272;
+  /* slategray */
+  --slategray-100: #6b7280;
+  /* lightgray */
+  --lightgray-100: #d1d5db;
+  /* whitesmoke */
+  --whitesmoke-100: #f3f4f6;
+  --whitesmoke-200: #f9fafb;
+  --whitesmoke-300: #f8fafc;
+  --whitesmoke-400: #eee;
+  --whitesmoke-500: #f8f8f8;
+  --whitesmoke-600: rgb(248,250,252);
+  --whitesmoke-700: rgba(240,240,240,.6);
+  /* royalblue */
+  --royalblue-100: #2563eb;
+  --royalblue-200: #1d4ed8;
+  --royalblue-300: #3367d9;
+  /* blueviolet */
+  --blueviolet-100: #9333ea;
+  --blueviolet-200: #4f46e5;
+  --blueviolet-300: #7e22ce;
+  /* ivory */
+  --ivory-100: #fffbeb;
+  --ivory-200: #fefce8;
+  /* orange */
+  --orange-100: #f59e0b;
+  /* lavender */
+  --lavender-100: #dbeafe;
+  --lavender-200: #e0e7ff;
+  --lavender-300: #f3e8ff;
+  /* lightsteelblue */
+  --lightsteelblue-100: #bfdbfe;
+  /* cornflowerblue */
+  --cornflowerblue-100: #60a5fa;
+  /* aliceblue */
+  --aliceblue-100: #eff6ff;
+  --aliceblue-200: #eef2ff;
+  /* dodgerblue */
+  --dodgerblue-100: #3b82f6;
+  --dodgerblue-200: rgba(59,130,246,.15);
+  /* mintcream */
+  --mintcream-100: #ecfdf5;
+  --mintcream-200: #f0fdf4;
+  --mintcream-300: #f0fdfa;
+  /* mediumseagreen */
+  --mediumseagreen-100: #10b981;
+  /* mediumspringgreen */
+  --mediumspringgreen-100: #4ade80;
+  --mediumspringgreen-200: #22c55e;
+  --mediumspringgreen-300: rgba(34,197,94,.08);
+  /* forestgreen */
+  --forestgreen-100: #16a34a;
+  /* mediumslateblue */
+  --mediumslateblue-100: #6366f1;
+  --mediumslateblue-200: #8b5cf6;
+  --mediumslateblue-300: rgba(99,102,241,0.3);
+  /* papayawhip */
+  --papayawhip-100: #ffedd5;
+  /* navajowhite */
+  --navajowhite-100: #fed7aa;
+  /* sandybrown */
+  --sandybrown-100: #fdba74;
+  /* chocolate */
+  --chocolate-100: #fb923c;
+  --chocolate-200: #c2410c;
+  /* floralwhite */
+  --floralwhite-100: #fff7ed;
+  /* darkorange */
+  --darkorange-100: #f97316;
+  --darkorange-200: rgba(249,115,22,0.6);
+  --darkorange-300: rgba(249,115,22,0.4);
+  --darkorange-400: rgba(249,115,22,0.7);
+  /* orangered */
+  --orangered-100: #ea580c;
+  /* hotpink */
+  --hotpink-100: #f472b6;
+  --hotpink-200: #ec4899;
+  /* lavenderblush */
+  --lavenderblush-100: #fdf2f8;
+  --lavenderblush-200: #fef2f2;
+  --lavenderblush-300: #fff1f2;
+  /* thistle */
+  --thistle-100: #e9d5ff;
+  /* mediumpurple */
+  --mediumpurple-100: #c084fc;
+  /* ghostwhite */
+  --ghostwhite-100: #faf5ff;
+  --ghostwhite-200: #f5f3ff;
+  /* darkorchid */
+  --darkorchid-100: #a855f7;
+  --darkorchid-200: rgba(168,85,247,.1);
+  --darkorchid-300: rgba(168,85,247,0.5);
+  --darkorchid-400: rgba(168,85,247,0.6);
+  --darkorchid-500: rgba(168,85,247,0.4);
+  --darkorchid-600: rgba(168,85,247,0.7);
+  /* salmon */
+  --salmon-100: #f87171;
+  /* crimson */
+  --crimson-100: #ef4444;
+  --crimson-200: #dc2626;
+  --crimson-300: #f43f5e;
+  --crimson-400: #e11d48;
+  --crimson-500: #be123c;
+  /* lightseagreen */
+  --lightseagreen-100: #14b8a6;
+  /* khaki */
+  --khaki-100: #fef08a;
+  /* gold */
+  --gold-100: #fde047;
+  --gold-200: #facc15;
+  /* goldenrod */
+  --goldenrod-100: #eab308;
+  /* darkgoldenrod */
+  --darkgoldenrod-100: #ca8a04;
+  /* seagreen */
+  --seagreen-100: #059669;
+  --seagreen-200: #047857;
+  /* mediumvioletred */
+  --mediumvioletred-100: #db2777;
+  --mediumvioletred-200: #be185d;
+  --mediumvioletred-300: rgb(219, 39, 119);
+  /* plum */
+  --plum-100: #d8b4fe;
+  /* mistyrose */
+  --mistyrose-100: #fee2e2;
+  /* darkcyan */
+  --darkcyan-100: #0d9488;
+  --azure-100: #ecfeff;
+  --skyblue-100: #06b6d4;
+  --steelblue-100: #0891b2;
+  --darkblue-100: #4338ca;
+  --lightpink-100: #fca5a5;
+  --firebrick-100: #b91c1c;
+  --lemonchiffon-100: #fef9c3;
+  --indigo-100: #6b21a8;
+  --gray-100: #91919a;
+  --gray-200: #777;
+  --silver-100: #bbb;
+  --lightslategray-100: rgba(150,150,180,.1);
+  /* Logo Colors */
+  --tomato: rgb(244, 94, 44);
+  --darkorange: rgb(244, 140, 36);
+  --chocolate: rgb(244, 116, 36);
+  --coral: rgb(244, 108, 44);
+  /* Homepage Colors */
+  --indianred: rgb(210, 84, 86);
+  --whitesmoke: rgb(249, 247, 248);
+  --darkgray: rgb(157, 159, 159);
+  --darksalmon: rgb(206, 137, 101);
+  --darkorchid: rgb(162, 60, 204);
+  --mediumseagreen: rgb(59, 184, 137);
+  --lightgray: rgb(202, 203, 204);
+  --peachpuff: rgb(233, 193, 169);
+  --mistyrose: rgb(234, 207, 216);
+  --mediumpurple: rgb(104, 100, 188);
 }
 
 .dark {
